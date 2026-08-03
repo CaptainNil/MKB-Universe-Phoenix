@@ -5,6 +5,7 @@ import './App.css'
 import Header from './components/Header/Header'
 import Hero from './components/Hero/Hero'
 import Progress from './components/Progress/Progress'
+import About from './components/About/About'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -25,8 +26,10 @@ function App() {
   count={count}
   setCount={setCount}
 />
+<About />
       </section>
     </>
+    
   )
 }
 
