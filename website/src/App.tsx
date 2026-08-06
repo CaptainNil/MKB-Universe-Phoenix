@@ -1,3 +1,4 @@
+import Projects from "./components/Projects/Projects";
 import { useState } from 'react'
 
 
@@ -27,6 +28,7 @@ function App() {
   setCount={setCount}
 />
 <About />
+<Projects />
       </section>
     </>
     

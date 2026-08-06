@@ -1,3 +1,4 @@
+import "./Header.css";
 function Header() {
   return (
     <header>
@@ -5,6 +6,10 @@ function Header() {
           <p>
             Building the future, one step at a time.
           </p>
+          <nav>
+            <a href="#home">Home</a>
+  <a href="#about">About</a>
+</nav>
     </header>
   );
 }
