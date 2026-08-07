@@ -1,25 +1,33 @@
 import { useState } from "react";
+import "./Projects.css";
 
 function PhoenixOS() {
   const [showDetails, setShowDetails] = useState(false);
 
   return (
     <div className="project-card">
-      <h3>Phoenix OS</h3>
+      <h3>⚙️ Phoenix OS</h3>
 
-      <p>Status: In Development</p>
+      <span className="status development">In Development</span>
+
+      <p>
+        Next-generation operating system designed for the future of
+        computing.
+      </p>
 
       <button onClick={() => setShowDetails(!showDetails)}>
         {showDetails ? "Hide Details" : "View Details"}
       </button>
 
       {showDetails && (
-        <div>
-          <h3>Project Details</h3>
+        <div className="project-details">
+          <h4>📋 Project Details</h4>
 
           <p>
-            Phoenix OS is one of the core innovations of the MKB Universe &
-            Phoenix Vision. It is currently under active development.
+            Phoenix OS is one of the flagship technologies of the MKB Universe
+            & Phoenix Vision. It is being designed as a modern, intelligent,
+            secure, and scalable operating system for future computing,
+            artificial intelligence, and advanced technologies.
           </p>
         </div>
       )}

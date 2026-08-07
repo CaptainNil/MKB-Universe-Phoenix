@@ -1,7 +1,7 @@
 import "./Projects.css";
 import PhoenixAI from "./PhoenixAI";
 import PhoenixOS from "./PhoenixOS";
-
+import PhoenixSpace from "./PhoenixSpace";
 
 function Projects() {
   return (
@@ -13,9 +13,11 @@ function Projects() {
         Vision.
       </p>
 
-      <PhoenixAI />
-
-      <PhoenixOS />
+      <div className="projects-grid">
+        <PhoenixAI />
+        <PhoenixOS />
+        <PhoenixSpace />
+      </div>
     </section>
   );
 }

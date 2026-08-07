@@ -1,11 +1,36 @@
+import { useState } from "react";
+import "./Projects.css";
+
 function PhoenixAI() {
+  const [showDetails, setShowDetails] = useState(false);
+
   return (
     <div className="project-card">
-      <h3>Phoenix AI</h3>
+      <h3>🤖 Phoenix AI</h3>
 
-      <p>Status: Planning</p>
+      <span className="status planning">Planning</span>
 
-      <button>Coming Soon</button>
+      <p>
+        Intelligent AI platform focused on automation, reasoning, and future
+        technologies.
+      </p>
+
+      <button onClick={() => setShowDetails(!showDetails)}>
+        {showDetails ? "Hide Details" : "View Details"}
+      </button>
+
+      {showDetails && (
+        <div className="project-details">
+          <h4>📋 Project Details</h4>
+
+          <p>
+            Phoenix AI is the artificial intelligence initiative of the MKB
+            Universe & Phoenix Vision. It aims to develop intelligent systems,
+            automation tools, advanced reasoning models, and AI technologies
+            that empower people and solve real-world challenges.
+          </p>
+        </div>
+      )}
     </div>
   );
 }
