@@ -1,7 +1,6 @@
+import Contact from "./components/Contact/Contact";
 import Projects from "./components/Projects/Projects";
 import { useState } from 'react'
-
-
 import './App.css'
 import Header from './components/Header/Header'
 import Hero from './components/Hero/Hero'
@@ -29,6 +28,7 @@ function App() {
 />
 <About />
 <Projects />
+<Contact />
       </section>
     </>
     
