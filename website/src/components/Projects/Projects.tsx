@@ -5,7 +5,7 @@ import PhoenixOS from "./PhoenixOS";
 
 function Projects() {
   return (
-    <section className="projects">
+    <section id="projects" className="projects">
       <h2>🚀 Projects</h2>
 
       <p>

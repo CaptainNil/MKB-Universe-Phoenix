@@ -2,7 +2,7 @@ import "./Contact.css";
 
 function Contact() {
   return (
-    <section className="contact">
+    <section id="contact" className="contact">
       <h2>📬 Contact</h2>
 
       <p>Let's build the future together.</p>

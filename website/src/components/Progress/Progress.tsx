@@ -8,7 +8,7 @@ type ProgressProps = {
 function Progress({ count, setCount }: ProgressProps) {
     
   return (
-  <div className="progress-card">
+  <div id="progress" className="progress-card">
     <h3>Vision Progress</h3>
 
     <div className="progress-bar">

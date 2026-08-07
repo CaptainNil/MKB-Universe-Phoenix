@@ -1,3 +1,5 @@
+import Vision from "./components/Vision/Vision";
+import Footer from "./components/Footer/Footer";
 import Contact from "./components/Contact/Contact";
 import Projects from "./components/Projects/Projects";
 import { useState } from 'react'
@@ -14,6 +16,7 @@ function App() {
     <>
     <Header />
     <Hero />
+    <Vision />
       <section id="center">
         <div className="hero">
           
@@ -29,6 +32,7 @@ function App() {
 <About />
 <Projects />
 <Contact />
+<Footer />
       </section>
     </>
     
