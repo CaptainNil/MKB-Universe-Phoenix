@@ -1,57 +1,118 @@
 .contact {
-  max-width: 900px;
-  margin: 60px auto 0;
-  padding: 60px 20px;
+  margin-top: 50px;
+  padding: 70px 20px;
   text-align: center;
   border-top: 2px solid var(--accent);
 }
 
 .contact h2 {
   color: var(--accent);
-  font-size: clamp(2rem, 5vw, 2.8rem);
   margin-bottom: 15px;
 }
 
-.contact p {
-  margin: 0 auto 25px;
+.contact > p {
+  margin-bottom: 30px;
   color: var(--text);
-  font-size: 18px;
-  line-height: 1.7;
 }
 
-.contact button {
+.contact-form {
+  width: min(100%, 650px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 16px;
+  border: 1px solid var(--accent-border);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--text-h);
+  font-family: var(--sans);
+  font-size: 16px;
+  outline: none;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.contact-form button {
+  align-self: center;
+  padding: 12px 26px;
+  border: none;
+  border-radius: 10px;
   background: var(--accent);
   color: #ffffff;
-  border: 2px solid var(--accent);
-  padding: 12px 24px;
-  border-radius: 10px;
-  font: inherit;
+  font-size: 16px;
   font-weight: 600;
   cursor: pointer;
   transition:
-    background 0.3s ease,
     transform 0.3s ease,
-    box-shadow 0.3s ease;
+    box-shadow 0.3s ease,
+    background 0.3s ease;
 }
 
-.contact button:hover {
-  background: #7c3aed;
+.contact-form button:hover {
+  background: var(--accent-light);
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(124, 58, 237, 0.3);
+  box-shadow: var(--shadow);
 }
 
-.contact button:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
+.contact-message {
+  width: min(100%, 650px);
+  box-sizing: border-box;
+  margin: 30px auto 0;
+  padding: 20px;
+  border: 1px solid var(--accent-border);
+  border-radius: 12px;
+  background: var(--surface-soft);
+  color: var(--text);
+}
+
+.contact-message h3 {
+  margin-top: 0;
+  color: var(--accent);
 }
 
 @media (max-width: 768px) {
   .contact {
-    margin-top: 45px;
-    padding: 45px 20px;
+    padding: 55px 20px;
   }
 
-  .contact p {
-    font-size: 1rem;
+  .contact-form {
+    width: 100%;
   }
+
+  .contact-form button {
+    width: 100%;
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+.form-error {
+  color: #dc2626;
+  font-size: 14px;
+  padding-left: 4px;
 }
