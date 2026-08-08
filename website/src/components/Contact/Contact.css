@@ -1,28 +1,57 @@
 .contact {
-  margin-top: 50px;
-  padding: 30px;
+  max-width: 900px;
+  margin: 60px auto 0;
+  padding: 60px 20px;
   text-align: center;
-  border-top: 2px solid #7c3aed;
+  border-top: 2px solid var(--accent);
 }
 
 .contact h2 {
-  color: #7c3aed;
+  color: var(--accent);
+  font-size: clamp(2rem, 5vw, 2.8rem);
   margin-bottom: 15px;
 }
 
 .contact p {
-  margin-bottom: 20px;
+  margin: 0 auto 25px;
+  color: var(--text);
+  font-size: 18px;
+  line-height: 1.7;
 }
 
 .contact button {
-  background: #7c3aed;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
+  background: var(--accent);
+  color: #ffffff;
+  border: 2px solid var(--accent);
+  padding: 12px 24px;
+  border-radius: 10px;
+  font: inherit;
+  font-weight: 600;
   cursor: pointer;
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .contact button:hover {
-  background: #6d28d9;
+  background: #7c3aed;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(124, 58, 237, 0.3);
+}
+
+.contact button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (max-width: 768px) {
+  .contact {
+    margin-top: 45px;
+    padding: 45px 20px;
+  }
+
+  .contact p {
+    font-size: 1rem;
+  }
 }

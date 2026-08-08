@@ -1,43 +1,69 @@
-#vision {
-  padding: 80px 20px;
+.vision {
+  padding: 90px 20px;
   text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-#vision h2 {
-  font-size: 2.5rem;
-  color: #7c3aed;
-  margin-bottom: 50px;
+.vision h2 {
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.vision-intro {
+  max-width: 760px;
+  margin: 0 auto 50px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text);
 }
 
 .vision-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 25px;
-  max-width: 1100px;
-  margin: 0 auto;
 }
 
 .vision-card {
-  background: linear-gradient(135deg, #ffffff, #faf7ff);
-  border: 1px solid rgba(124, 58, 237, 0.15);
-  padding: 30px;
+  background: var(--bg);
+  border: 1px solid var(--accent-border);
   border-radius: 18px;
-  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.08);
-  transition: all 0.3s ease;
+  padding: 30px;
+  box-shadow: var(--shadow);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
 }
 
 .vision-card:hover {
-  transform: translateY(-12px) scale(1.03);
+  transform: translateY(-10px);
+  border-color: var(--accent);
   box-shadow: 0 18px 35px rgba(124, 58, 237, 0.22);
-  border-color: #7c3aed;
 }
 
 .vision-card h3 {
-  color: #7c3aed;
+  color: var(--accent);
   margin-bottom: 15px;
+  font-size: 1.25rem;
 }
 
 .vision-card p {
-  color: #555;
-  line-height: 1.7;
+  color: var(--text);
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .vision {
+    padding: 70px 20px;
+  }
+
+  .vision-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vision-intro {
+    font-size: 1rem;
+  }
 }

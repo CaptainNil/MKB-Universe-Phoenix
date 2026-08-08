@@ -1,13 +1,30 @@
 .footer {
   margin-top: 60px;
-  padding: 30px;
+  padding: 40px 20px;
   text-align: center;
-  background-color: #f8f5ff;
-  border-top: 2px solid #7c3aed;
+  background: var(--accent-bg);
+  border-top: 2px solid var(--accent);
 }
 
 .footer p {
   margin: 8px 0;
-  color: #555;
+  color: var(--text);
   font-size: 15px;
+  line-height: 1.6;
+}
+
+.footer p:first-child {
+  color: var(--text-h);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    margin-top: 45px;
+    padding: 35px 20px;
+  }
+
+  .footer p {
+    font-size: 14px;
+  }
 }
