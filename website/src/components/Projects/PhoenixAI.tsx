@@ -5,7 +5,7 @@ function PhoenixAI() {
   const [showDetails, setShowDetails] = useState(false);
 
   return (
-    <div className="project-card">
+    <article className="project-card">
       <h3>🤖 Phoenix AI</h3>
 
       <span className="status planning">Planning</span>
@@ -31,7 +31,7 @@ function PhoenixAI() {
           </p>
         </div>
       )}
-    </div>
+    </article>
   );
 }
 

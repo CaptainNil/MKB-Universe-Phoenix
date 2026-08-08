@@ -1,10 +1,11 @@
 import { useState } from "react";
+import "./Projects.css";
 
 function PhoenixSpace() {
   const [showDetails, setShowDetails] = useState(false);
 
   return (
-    <div className="project-card">
+    <article className="project-card">
       <h3>🚀 Phoenix Space</h3>
 
       <span className="status research">Research</span>
@@ -20,7 +21,7 @@ function PhoenixSpace() {
 
       {showDetails && (
         <div className="project-details">
-          <h3>Project Details</h3>
+          <h4>📋 Project Details</h4>
 
           <p>
             Phoenix Space is a long-term initiative within the MKB Universe &
@@ -30,7 +31,7 @@ function PhoenixSpace() {
           </p>
         </div>
       )}
-    </div>
+    </article>
   );
 }
 

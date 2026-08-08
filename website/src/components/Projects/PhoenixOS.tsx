@@ -5,14 +5,13 @@ function PhoenixOS() {
   const [showDetails, setShowDetails] = useState(false);
 
   return (
-    <div className="project-card">
+    <article className="project-card">
       <h3>⚙️ Phoenix OS</h3>
 
       <span className="status development">In Development</span>
 
       <p>
-        Next-generation operating system designed for the future of
-        computing.
+        Next-generation operating system designed for the future of computing.
       </p>
 
       <button onClick={() => setShowDetails(!showDetails)}>
@@ -31,7 +30,7 @@ function PhoenixOS() {
           </p>
         </div>
       )}
-    </div>
+    </article>
   );
 }
 
