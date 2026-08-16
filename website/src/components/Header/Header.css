@@ -1,27 +1,581 @@
-header {
+/* =========================================================
+   MKB UNIVERSE — COMMAND INTERFACE HEADER
+   ========================================================= */
+
+.site-header {
+  position: relative;
+  z-index: 100;
+
+  width: 100%;
+  padding: 22px 32px 18px;
+
   text-align: center;
-  padding: 20px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(5, 3, 11, 0.96) 0%,
+      rgba(8, 5, 16, 0.9) 72%,
+      rgba(8, 5, 16, 0.72) 100%
+    );
+
+  border-bottom: 1px solid rgba(139, 92, 246, 0.18);
+
+  box-shadow:
+    0 18px 60px rgba(0, 0, 0, 0.28),
+    0 0 60px rgba(124, 58, 237, 0.05);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  overflow: hidden;
 }
 
-header p {
-  color: #666;
-  margin: 10px 0;
+
+/* =========================================================
+   ATMOSPHERIC GRID
+   ========================================================= */
+
+.site-header::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      rgba(139, 92, 246, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(139, 92, 246, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size: 44px 44px;
+
+  mask-image: linear-gradient(
+    to bottom,
+    black,
+    transparent 90%
+  );
+
+  pointer-events: none;
 }
 
-nav {
-  display: flex;
+
+/* =========================================================
+   TOP AMBIENT ENERGY
+   ========================================================= */
+
+.site-header::after {
+  content: "";
+
+  position: absolute;
+
+  top: -180px;
+  left: 50%;
+
+  width: 700px;
+  height: 300px;
+
+  transform: translateX(-50%);
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(139, 92, 246, 0.16),
+      rgba(124, 58, 237, 0.06) 35%,
+      transparent 72%
+    );
+
+  pointer-events: none;
+
+  filter: blur(4px);
+}
+
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.header-brand {
+  position: relative;
+  z-index: 2;
+
+  display: inline-flex;
+
+  align-items: flex-start;
   justify-content: center;
-  gap: 30px;
-  margin-top: 15px;
+
+  gap: 11px;
+
+  margin-bottom: 8px;
 }
 
-nav a {
+
+.brand-mark {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 8px;
+
+  color: #a78bfa;
+
+  font-size: 15px;
+
+  text-shadow:
+    0 0 8px rgba(139, 92, 246, 0.9),
+    0 0 22px rgba(139, 92, 246, 0.45);
+
+  animation: brandPulse 3.5s ease-in-out infinite;
+}
+
+
+.brand-content h1 {
+  margin: 0;
+
+  color: #f8f7ff;
+
+  font-size: clamp(
+    1.8rem,
+    3.4vw,
+    3rem
+  );
+
+  font-weight: 750;
+
+  letter-spacing: -1.7px;
+
+  line-height: 1.05;
+
+  text-shadow:
+    0 0 30px rgba(139, 92, 246, 0.08);
+}
+
+
+.brand-content p {
+  margin: 7px 0 0;
+
+  color: #817995;
+
+  font-size: 0.82rem;
+
+  letter-spacing: 0.35px;
+}
+
+
+/* =========================================================
+   SYSTEM STATUS
+   ========================================================= */
+
+.header-system {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  margin: 15px auto 13px;
+
+  color: #a78bfa;
+
+  font-size: 0.62rem;
+
+  font-weight: 700;
+
+  letter-spacing: 2.2px;
+
+  text-transform: uppercase;
+}
+
+
+.system-dot {
+  width: 6px;
+  height: 6px;
+
+  flex: 0 0 auto;
+
+  border-radius: 50%;
+
+  background: #22c55e;
+
+  box-shadow:
+    0 0 6px rgba(34, 197, 94, 0.95),
+    0 0 16px rgba(34, 197, 94, 0.55);
+
+  animation: statusPulse 2.2s ease-in-out infinite;
+}
+
+
+.system-line {
+  width: 42px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(139, 92, 246, 0.75),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   FUTURE NAVIGATION
+   ========================================================= */
+
+.future-nav {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 6px;
+
+  margin-top: 10px;
+}
+
+
+.nav-link {
+  position: relative;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  min-height: 38px;
+
+  padding: 8px 14px;
+
+  color: #9186aa;
+
   text-decoration: none;
-  color: #7c3aed;
-  font-weight: 600;
-  transition: color 0.3s ease;
+
+  font-size: 0.84rem;
+
+  font-weight: 650;
+
+  letter-spacing: 0.1px;
+
+  border: 1px solid transparent;
+
+  border-radius: 9px;
+
+  background: transparent;
+
+  transition:
+    color 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
 }
 
-nav a:hover {
-  color: #a855f7;
+
+/* Small navigation system index */
+
+.nav-index {
+  color: #5e5472;
+
+  font-size: 0.57rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.7px;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+/* Hover */
+
+.nav-link:hover {
+  color: #ddd6fe;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(139, 92, 246, 0.11),
+      rgba(124, 58, 237, 0.04)
+    );
+
+  border-color: rgba(139, 92, 246, 0.25);
+
+  box-shadow:
+    0 0 24px rgba(124, 58, 237, 0.08),
+    inset 0 0 16px rgba(139, 92, 246, 0.035);
+
+  transform: translateY(-1px);
+}
+
+
+.nav-link:hover .nav-index {
+  color: #a78bfa;
+
+  transform: translateX(-1px);
+}
+
+
+/* =========================================================
+   ACTIVE SYSTEM NODE
+   ========================================================= */
+
+.nav-link.active {
+  color: #f5f3ff;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(139, 92, 246, 0.18),
+      rgba(124, 58, 237, 0.07)
+    );
+
+  border-color:
+    rgba(139, 92, 246, 0.38);
+
+  box-shadow:
+    0 0 28px rgba(124, 58, 237, 0.1),
+    inset 0 0 18px rgba(139, 92, 246, 0.045);
+}
+
+
+.nav-link.active .nav-index {
+  color: #a78bfa;
+}
+
+
+/* Active energy line */
+
+.nav-link.active::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: -5px;
+
+  width: 22px;
+  height: 2px;
+
+  transform: translateX(-50%);
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #7c3aed,
+      #c084fc
+    );
+
+  box-shadow:
+    0 0 8px rgba(139, 92, 246, 0.8),
+    0 0 18px rgba(124, 58, 237, 0.35);
+}
+
+
+/* =========================================================
+   HEADER BOTTOM ENERGY TRACE
+   ========================================================= */
+
+.site-header .future-nav::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: -19px;
+
+  width: min(760px, 70vw);
+  height: 1px;
+
+  transform: translateX(-50%);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(139, 92, 246, 0.2),
+      rgba(168, 85, 247, 0.45),
+      rgba(139, 92, 246, 0.2),
+      transparent
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes brandPulse {
+  0%,
+  100% {
+    opacity: 0.65;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+}
+
+
+@keyframes statusPulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(0.9);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .site-header {
+    padding: 20px 22px 17px;
+  }
+
+  .brand-content h1 {
+    font-size: clamp(
+      1.7rem,
+      5vw,
+      2.5rem
+    );
+  }
+
+  .future-nav {
+    gap: 5px;
+  }
+
+  .nav-link {
+    padding: 8px 11px;
+    font-size: 0.8rem;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+  .site-header {
+    padding: 18px 16px 15px;
+  }
+
+  .brand-content h1 {
+    font-size: 1.75rem;
+    letter-spacing: -1px;
+  }
+
+  .brand-content p {
+    font-size: 0.75rem;
+  }
+
+  .header-system {
+    gap: 7px;
+
+    font-size: 0.55rem;
+
+    letter-spacing: 1.5px;
+  }
+
+  .system-line {
+    width: 25px;
+  }
+
+  .future-nav {
+    gap: 4px;
+  }
+
+  .nav-link {
+    min-height: 34px;
+
+    padding: 7px 9px;
+
+    font-size: 0.76rem;
+  }
+
+  .nav-index {
+    display: none;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+  .brand-mark {
+    display: none;
+  }
+
+  .brand-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .brand-content p {
+    font-size: 0.7rem;
+  }
+
+  .header-system {
+    margin-top: 12px;
+    margin-bottom: 10px;
+  }
+
+  .future-nav {
+    display: grid;
+
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+
+    width: 100%;
+
+    max-width: 390px;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .nav-link {
+    justify-content: center;
+
+    padding: 8px 5px;
+
+    font-size: 0.72rem;
+  }
+
+  .site-header .future-nav::after {
+    width: 85vw;
+  }
 }

@@ -16,44 +16,61 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <>
+    <div className="universe-app">
+      {/* Primary Interface */}
       <Reveal>
-  <Header />
-</Reveal>
+        <Header />
+      </Reveal>
 
-<main>
-        <Reveal>
-          <Hero />
-        </Reveal>
+      {/* Entry Layer */}
+      <main className="universe-main">
+        <section className="universe-layer universe-hero-layer">
+          <Reveal>
+            <Hero />
+          </Reveal>
+        </section>
 
-        <Reveal>
-          <Vision />
-        </Reveal>
+        {/* Phoenix Core / Vision Layer */}
+        <section className="universe-layer universe-vision-layer">
+          <Reveal>
+            <Vision />
+          </Reveal>
+        </section>
 
-        <Reveal>
-          <Progress
-            count={count}
-            setCount={setCount}
-          />
-        </Reveal>
+        {/* Development State Layer */}
+        <section className="universe-layer universe-progress-layer">
+          <Reveal>
+            <Progress count={count} setCount={setCount} />
+          </Reveal>
+        </section>
 
-        <Reveal>
-          <About />
-        </Reveal>
+        {/* Universal Ecosystem Layer */}
+        <section className="universe-layer universe-about-layer">
+          <Reveal>
+            <About />
+          </Reveal>
+        </section>
 
-        <Reveal>
-          <Projects />
-        </Reveal>
+        {/* Intelligence / Autonomy / Exploration Systems */}
+        <section className="universe-layer universe-systems-layer">
+          <Reveal>
+            <Projects />
+          </Reveal>
+        </section>
 
-        <Reveal>
-          <Contact />
-        </Reveal>
+        {/* Connection Layer */}
+        <section className="universe-layer universe-contact-layer">
+          <Reveal>
+            <Contact />
+          </Reveal>
+        </section>
       </main>
 
+      {/* System Foundation */}
       <Reveal>
         <Footer />
       </Reveal>
-    </>
+    </div>
   );
 }
 
