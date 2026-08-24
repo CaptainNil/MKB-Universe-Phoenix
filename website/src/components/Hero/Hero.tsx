@@ -1,45 +1,105 @@
+import { useEffect, useRef } from "react";
 import "./Hero.css";
 
 function Hero() {
+  const heroRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    const hero = heroRef.current;
+    if (!hero) return;
+
+    const handlePointerMove = (event: PointerEvent) => {
+      const rect = hero.getBoundingClientRect();
+
+      const x = (event.clientX - rect.left) / rect.width;
+      const y = (event.clientY - rect.top) / rect.height;
+
+      const rotateY = (x - 0.5) * 14;
+      const rotateX = (0.5 - y) * 10;
+
+      const lightX = x * 100;
+      const lightY = y * 100;
+
+      hero.style.setProperty("--hero-mouse-x", `${lightX}%`);
+      hero.style.setProperty("--hero-mouse-y", `${lightY}%`);
+      hero.style.setProperty("--hero-rotate-x", `${rotateX}deg`);
+      hero.style.setProperty("--hero-rotate-y", `${rotateY}deg`);
+
+      hero.style.setProperty(
+        "--hero-parallax-x",
+        `${(x - 0.5) * 28}px`,
+      );
+
+      hero.style.setProperty(
+        "--hero-parallax-y",
+        `${(y - 0.5) * 22}px`,
+      );
+    };
+
+    const handlePointerLeave = () => {
+      hero.style.setProperty("--hero-mouse-x", "50%");
+      hero.style.setProperty("--hero-mouse-y", "45%");
+      hero.style.setProperty("--hero-rotate-x", "0deg");
+      hero.style.setProperty("--hero-rotate-y", "0deg");
+      hero.style.setProperty("--hero-parallax-x", "0px");
+      hero.style.setProperty("--hero-parallax-y", "0px");
+    };
+
+    hero.addEventListener("pointermove", handlePointerMove);
+    hero.addEventListener("pointerleave", handlePointerLeave);
+
+    return () => {
+      hero.removeEventListener("pointermove", handlePointerMove);
+      hero.removeEventListener("pointerleave", handlePointerLeave);
+    };
+  }, []);
+
   return (
-    <section className="hero" id="home">
+    <section
+      ref={heroRef}
+      className="hero"
+      id="home"
+    >
       {/* -------------------------------- */}
       {/* ATMOSPHERIC ENVIRONMENT */}
       {/* -------------------------------- */}
 
-      <div className="hero-stars" />
-      <div className="hero-grid" />
+      <div className="hero-stars" aria-hidden="true" />
+      <div className="hero-grid" aria-hidden="true" />
 
-      <div className="orbit orbit-1" />
-      <div className="orbit orbit-2" />
-      <div className="orbit orbit-3" />
+      <div className="orbit orbit-1" aria-hidden="true" />
+      <div className="orbit orbit-2" aria-hidden="true" />
+      <div className="orbit orbit-3" aria-hidden="true" />
 
-      <div className="hero-glow hero-glow-one" />
-      <div className="hero-glow hero-glow-two" />
+      <div className="hero-glow hero-glow-one" aria-hidden="true" />
+      <div className="hero-glow hero-glow-two" aria-hidden="true" />
+
+      {/* -------------------------------- */}
+      {/* DYNAMIC 3D LIGHT */}
+      {/* -------------------------------- */}
+
+      <div className="hero-mouse-light" aria-hidden="true" />
 
       {/* -------------------------------- */}
       {/* MAIN ENTRY EXPERIENCE */}
       {/* -------------------------------- */}
 
       <div className="hero-content">
-        {/* Future identity */}
         <div className="future-label">
           <span className="future-dot" />
           <span>MKB UNIVERSE · PHOENIX VISION</span>
           <span className="label-line" />
         </div>
 
-        {/* Main statement */}
         <h1 className="hero-title">
           <span>BUILDING</span>
 
           <strong>
-            WHAT COMES
+            <span className="hero-title-main">WHAT COMES</span>
             <em>NEXT.</em>
           </strong>
         </h1>
 
-        {/* Civilization statement */}
         <p className="hero-description">
           A vision beyond the present.
           <br />
@@ -54,7 +114,13 @@ function Hero() {
         {/* PHOENIX CORE */}
         {/* -------------------------------- */}
 
-        <div className="phoenix-core">
+        <div
+          className="phoenix-core"
+          aria-label="Phoenix Core"
+          role="img"
+        >
+          <div className="core-depth-field" />
+
           <div className="core-outer-ring" />
           <div className="core-middle-ring" />
           <div className="core-inner-ring" />

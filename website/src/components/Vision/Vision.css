@@ -1,47 +1,90 @@
 /* =========================================================
-   MKB UNIVERSE & PHOENIX VISION
-   VISION SYSTEM — PHOENIX LIVING TECHNOLOGY CORE
+   MKB UNIVERSE · PHOENIX VISION
+   FINAL VISION.CSS
+   Phoenix Core · Intelligence · Autonomy · Exploration · Evolution
    ========================================================= */
 
 .vision {
+  --vision-bg: #030208;
+  --vision-bg-deep: #020106;
+
+  --vision-white: #ffffff;
+  --vision-text: #f8f7ff;
+  --vision-muted: #aaa2bd;
+  --vision-dim: #746b89;
+
+  --vision-violet: #8b5cf6;
+  --vision-purple: #7c3aed;
+  --vision-lavender: #c4b5fd;
+  --vision-indigo: #6366f1;
+  --vision-blue: #38bdf8;
+  --vision-orange: #fb923c;
+
+  --vision-border: rgba(139, 92, 246, 0.28);
+  --vision-border-soft: rgba(139, 92, 246, 0.12);
+
   position: relative;
-  width: min(100%, 1400px);
+  width: 100%;
+  min-height: 100vh;
   margin: 0 auto;
-  padding: 120px 24px 90px;
+  padding: 82px 24px 48px;
+
   overflow: hidden;
   isolation: isolate;
+  contain: layout paint;
+
+  color: var(--vision-text);
 
   background:
     radial-gradient(
-      circle at 50% 48%,
-      rgba(124, 58, 237, 0.18),
-      transparent 25%
+      circle at 50% 43%,
+      rgba(124, 58, 237, 0.22),
+      transparent 24%
     ),
     radial-gradient(
       circle at 50% 48%,
-      rgba(139, 92, 246, 0.08),
-      transparent 50%
+      rgba(99, 102, 241, 0.09),
+      transparent 48%
     ),
-    #05030b;
-
-  color: #ffffff;
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(56, 189, 248, 0.025),
+      transparent 70%
+    ),
+    linear-gradient(
+      180deg,
+      #04020a 0%,
+      #030208 52%,
+      #020106 100%
+    );
 }
 
 /* =========================================================
-   BACKGROUND ENERGY
+   BACKGROUND ATMOSPHERE
    ========================================================= */
 
 .vision::before {
   content: "";
   position: absolute;
   inset: 0;
+
   pointer-events: none;
 
   background:
     radial-gradient(
       circle at 50% 50%,
-      rgba(167, 139, 250, 0.1),
-      transparent 35%
+      rgba(167, 139, 250, 0.08),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(56, 189, 248, 0.035),
+      transparent 18%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      rgba(251, 146, 60, 0.025),
+      transparent 18%
     ),
     linear-gradient(
       90deg,
@@ -50,28 +93,30 @@
       transparent
     );
 
-  z-index: -3;
+  z-index: -8;
 }
 
 .vision::after {
   content: "";
+
   position: absolute;
   inset: -170px 0 0;
+
   pointer-events: none;
 
   background-image:
     radial-gradient(
       circle,
-      rgba(196, 181, 253, 0.75) 0 1px,
+      rgba(221, 214, 254, 0.85) 0 1px,
       transparent 1.6px
     );
 
-  background-size: 170px 170px;
-  opacity: 0.11;
+  background-size: 145px 145px;
+  opacity: 0.16;
 
-  animation: starField 18s linear infinite;
+  animation: starField 20s linear infinite;
 
-  z-index: -4;
+  z-index: -7;
 }
 
 /* =========================================================
@@ -80,89 +125,99 @@
 
 .vision-header {
   position: relative;
-  z-index: 30;
+  z-index: 40;
 
-  max-width: 850px;
-  margin: 0 auto 80px;
+  width: min(100%, 850px);
+
+  margin: 0 auto 30px;
 
   text-align: center;
 }
 
 .vision-label {
   display: inline-flex;
+
   align-items: center;
+  justify-content: center;
   gap: 10px;
 
-  margin-bottom: 18px;
+  margin-bottom: 12px;
 
-  color: #a78bfa;
+  color: var(--vision-lavender);
 
-  font-size: 0.75rem;
+  font-size: 0.68rem;
   font-weight: 800;
 
   letter-spacing: 0.28em;
-  line-height: 1.4;
+  line-height: 1.2;
 
   text-transform: uppercase;
 
   text-shadow:
-    0 0 12px rgba(139, 92, 246, 0.5),
-    0 0 30px rgba(124, 58, 237, 0.25);
+    0 0 12px rgba(167, 139, 250, 0.65),
+    0 0 32px rgba(124, 58, 237, 0.3);
 }
 
 .vision-label::before {
   content: "";
 
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
 
   flex: 0 0 auto;
 
   border-radius: 50%;
 
-  background: #a78bfa;
+  background: var(--vision-lavender);
 
   box-shadow:
-    0 0 8px #a78bfa,
-    0 0 18px rgba(139, 92, 246, 0.8);
+    0 0 8px #fff,
+    0 0 18px #a78bfa,
+    0 0 32px rgba(124, 58, 237, 0.9);
 
-  animation: onlinePulse 2s ease-in-out infinite;
+  animation: onlinePulse 1.8s ease-in-out infinite;
 }
 
 .vision-header h2 {
-  margin: 0 0 20px;
+  margin: 0 0 14px;
 
-  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-size: clamp(2.6rem, 5vw, 4.5rem);
+
   font-weight: 900;
 
-  letter-spacing: -0.05em;
+  letter-spacing: -0.055em;
   line-height: 0.95;
 
   background:
     linear-gradient(
       90deg,
-      #ffffff 0%,
-      #ddd6fe 38%,
-      #a78bfa 70%,
-      #8b5cf6 100%
+      #fff 0%,
+      #ddd6fe 32%,
+      #a78bfa 62%,
+      #8b5cf6 82%,
+      #c4b5fd 100%
     );
 
   -webkit-background-clip: text;
   background-clip: text;
+
   -webkit-text-fill-color: transparent;
 
   filter:
-    drop-shadow(0 0 20px rgba(139, 92, 246, 0.16));
+    drop-shadow(
+      0 0 24px rgba(139, 92, 246, 0.22)
+    );
 }
 
 .vision-header p {
   max-width: 760px;
+
   margin: 0 auto;
 
-  color: #a8a0bd;
+  color: var(--vision-muted);
 
-  font-size: 1.1rem;
-  line-height: 1.8;
+  font-size: 1rem;
+  line-height: 1.65;
 }
 
 /* =========================================================
@@ -170,103 +225,473 @@
    ========================================================= */
 
 .vision-system {
+  --vision-orbit-angle: 0deg;
+
   position: relative;
 
-  width: min(100%, 1050px);
-  min-height: 760px;
+  width: min(100%, 1180px);
+
+  /*
+   * The architecture itself gets a controlled viewport height.
+   * This is the main fix for the previous clipping.
+   */
+  height: clamp(
+    540px,
+    calc(100vh - 235px),
+    650px
+  );
+
+  min-height: 540px;
+  max-height: 650px;
 
   margin: 0 auto;
+
+  perspective: 1200px;
+
+  contain: layout paint;
+
+  overflow: visible;
+  isolation: isolate;
 }
 
 /* =========================================================
-   LARGE STATIC FIELD
+   SPACE FIELD
    ========================================================= */
 
-.vision-system::before {
-  content: "";
-
+.vision-space-field {
   position: absolute;
-
-  top: 50%;
-  left: 50%;
-
-  width: 760px;
-  height: 760px;
-
-  border: 1px solid rgba(139, 92, 246, 0.07);
-
-  border-radius: 50%;
-
-  transform: translate(-50%, -50%);
-
-  box-shadow:
-    0 0 100px rgba(124, 58, 237, 0.04),
-    inset 0 0 100px rgba(124, 58, 237, 0.025);
+  inset: 0;
 
   pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(124, 58, 237, 0.13),
+      transparent 22%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(99, 102, 241, 0.08),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(56, 189, 248, 0.025),
+      transparent 65%
+    );
+
+  opacity: 0.9;
+
+  z-index: -5;
 }
 
-/* =========================================================
-   VISIBLE ROTATING ARCHITECTURAL ORBIT
-   ========================================================= */
-
-.vision-system::after {
+.vision-space-field::before {
   content: "";
 
   position: absolute;
-
-  top: 50%;
-  left: 50%;
-
-  width: 520px;
-  height: 520px;
+  inset: 8%;
 
   border-radius: 50%;
 
   background:
-    conic-gradient(
-      from 0deg,
-      transparent 0deg,
-      transparent 35deg,
-      rgba(139, 92, 246, 0.03) 55deg,
-      rgba(167, 139, 250, 0.5) 72deg,
-      rgba(255, 255, 255, 0.9) 76deg,
-      rgba(139, 92, 246, 0.22) 82deg,
-      transparent 105deg,
-      transparent 210deg,
-      rgba(139, 92, 246, 0.18) 230deg,
-      transparent 250deg,
-      transparent 360deg
-    );
-
-  -webkit-mask:
     radial-gradient(
-      farthest-side,
-      transparent calc(100% - 1px),
-      #000 calc(100% - 1px)
+      circle,
+      rgba(196, 181, 253, 0.035),
+      transparent 68%
     );
 
-  mask:
+  filter: blur(12px);
+}
+
+.vision-space-field::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
     radial-gradient(
-      farthest-side,
-      transparent calc(100% - 1px),
-      #000 calc(100% - 1px)
+      circle at 20% 20%,
+      rgba(167, 139, 250, 0.08),
+      transparent 2%
+    ),
+    radial-gradient(
+      circle at 80% 24%,
+      rgba(99, 102, 241, 0.07),
+      transparent 2%
+    ),
+    radial-gradient(
+      circle at 22% 78%,
+      rgba(56, 189, 248, 0.05),
+      transparent 2%
+    ),
+    radial-gradient(
+      circle at 78% 76%,
+      rgba(251, 146, 60, 0.04),
+      transparent 2%
     );
 
-  transform: translate(-50%, -50%);
+  opacity: 0.7;
+}
 
-  animation: architectureRotation 22s linear infinite;
+/* =========================================================
+   GRID
+   ========================================================= */
 
-  filter:
-    drop-shadow(0 0 8px rgba(139, 92, 246, 0.35));
+.vision-grid,
+.vision-grid-grid {
+  position: absolute;
+  inset: 0;
 
   pointer-events: none;
+
+  z-index: -3;
+}
+
+.vision-grid {
+  background:
+    linear-gradient(
+      rgba(139, 92, 246, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(139, 92, 246, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size: 48px 48px;
+
+  mask-image:
+    radial-gradient(
+      ellipse at center,
+      black 20%,
+      transparent 76%
+    );
+
+  -webkit-mask-image:
+    radial-gradient(
+      ellipse at center,
+      black 20%,
+      transparent 76%
+    );
+}
+
+.vision-grid-grid {
+  background:
+    linear-gradient(
+      rgba(196, 181, 253, 0.018) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(196, 181, 253, 0.018) 1px,
+      transparent 1px
+    );
+
+  background-size: 12px 12px;
+
+  mask-image:
+    radial-gradient(
+      ellipse at center,
+      black 10%,
+      transparent 70%
+    );
+
+  -webkit-mask-image:
+    radial-gradient(
+      ellipse at center,
+      black 10%,
+      transparent 70%
+    );
+}
+
+/* =========================================================
+   ORBITS
+   ========================================================= */
+
+.vision-orbit {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  transform:
+    translate(-50%, -50%);
+
+  transform-origin: center;
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+
+  will-change: transform, opacity, filter;
 
   z-index: 1;
 }
 
+.orbit-outer {
+  width: min(54vw, 560px);
+  height: min(54vw, 560px);
+
+  border:
+    1px solid rgba(196, 181, 253, 0.62);
+
+  box-shadow:
+    0 0 6px rgba(196, 181, 253, 0.45),
+    0 0 18px rgba(139, 92, 246, 0.38),
+    0 0 42px rgba(124, 58, 237, 0.22),
+    inset 0 0 12px rgba(196, 181, 253, 0.08);
+
+  animation:
+    orbitOuter 32s linear infinite,
+    orbitGlowOuter 3.8s ease-in-out infinite;
+}
+
+.orbit-middle {
+  width: min(46vw, 475px);
+  height: min(46vw, 475px);
+
+  border:
+    1px solid rgba(167, 139, 250, 0.48);
+
+  border-style: solid;
+
+  box-shadow:
+    0 0 5px rgba(167, 139, 250, 0.42),
+    0 0 16px rgba(139, 92, 246, 0.32),
+    0 0 34px rgba(124, 58, 237, 0.18);
+
+  animation:
+    orbitMiddle 24s linear infinite,
+    orbitGlowMiddle 4.6s ease-in-out infinite;
+}
+
+.orbit-inner {
+  width: min(37vw, 380px);
+  height: min(37vw, 380px);
+
+  border:
+    1px dashed rgba(196, 181, 253, 0.38);
+
+  box-shadow:
+    0 0 5px rgba(196, 181, 253, 0.28),
+    0 0 14px rgba(139, 92, 246, 0.24),
+    0 0 28px rgba(124, 58, 237, 0.14);
+
+  animation:
+    orbitInner 19s linear infinite,
+    orbitGlowInner 5.4s ease-in-out infinite;
+}
+
+.orbit-quantum {
+  width: min(29vw, 300px);
+  height: min(29vw, 300px);
+
+  border:
+    1px solid rgba(221, 214, 254, 0.32);
+
+  box-shadow:
+    0 0 5px rgba(221, 214, 254, 0.3),
+    0 0 16px rgba(139, 92, 246, 0.3),
+    0 0 36px rgba(124, 58, 237, 0.18);
+
+  transform:
+    translate(-50%, -50%)
+    rotateX(64deg)
+    rotateZ(var(--vision-orbit-angle));
+
+  animation:
+    quantumOrbitGlow 3.2s ease-in-out infinite;
+}
+
 /* =========================================================
-   PHOENIX CORE CONTAINER
+   ORBIT LABELS
+   ========================================================= */
+
+.orbit-label {
+  position: absolute;
+
+  z-index: 4;
+
+  pointer-events: none;
+
+  color:
+    rgba(196, 181, 253, 0.38);
+
+  font-size: 0.44rem;
+  font-weight: 900;
+
+  letter-spacing: 0.25em;
+  line-height: 1.2;
+
+  text-transform: uppercase;
+
+  text-shadow:
+    0 0 12px rgba(139, 92, 246, 0.35);
+
+  animation:
+    labelFloat 4s ease-in-out infinite;
+}
+
+.orbit-label span {
+  display: block;
+}
+
+.orbit-label-1 {
+  top: 72px;
+  left: 50%;
+
+  transform: translateX(-50%);
+}
+
+.orbit-label-2 {
+  top: 50%;
+  right: 62px;
+
+  transform: translateY(-50%);
+}
+
+.orbit-label-3 {
+  bottom: 72px;
+  left: 27%;
+}
+
+.orbit-label-4 {
+  right: 27%;
+  bottom: 72px;
+}
+
+.orbit-label-5 {
+  top: 50%;
+  left: 62px;
+
+  transform: translateY(-50%);
+}
+
+.orbit-label-6 {
+  top: 112px;
+  right: 23%;
+}
+
+/* =========================================================
+   ORBIT PARTICLES
+   ========================================================= */
+
+.orbit-particle {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 7px;
+  height: 7px;
+
+  margin:
+    -3.5px 0 0 -3.5px;
+
+  border-radius: 50%;
+
+  background: #fff;
+
+  box-shadow:
+    0 0 7px #fff,
+    0 0 16px #c4b5fd,
+    0 0 32px rgba(139, 92, 246, 1);
+
+  pointer-events: none;
+
+  z-index: 5;
+}
+
+.particle-two {
+  width: 5px;
+  height: 5px;
+}
+
+.particle-three {
+  width: 6px;
+  height: 6px;
+}
+
+.particle-four {
+  width: 4px;
+  height: 4px;
+}
+
+.particle-five {
+  width: 5px;
+  height: 5px;
+}
+
+.particle-six {
+  width: 3px;
+  height: 3px;
+}
+
+.particle-seven {
+  width: 4px;
+  height: 4px;
+}
+
+.particle-eight {
+  width: 3px;
+  height: 3px;
+}
+
+.particle-one {
+  animation:
+    particleOrbitOne 8s linear infinite,
+    particleGlow 1.8s ease-in-out infinite;
+}
+
+.particle-two {
+  animation:
+    particleOrbitTwo 12s linear infinite,
+    particleGlow 1.8s ease-in-out infinite;
+}
+
+.particle-three {
+  animation:
+    particleOrbitThree 17s linear infinite,
+    particleGlow 1.8s ease-in-out infinite;
+}
+
+.particle-four {
+  animation:
+    particleOrbitFour 21s linear infinite,
+    particleGlow 1.8s ease-in-out infinite;
+}
+
+.particle-five {
+  animation:
+    particleOrbitFive 14s linear infinite,
+    particleGlow 1.8s ease-in-out infinite;
+}
+
+.particle-six {
+  animation:
+    particleOrbitSix 10s linear infinite,
+    particleGlow 1.8s ease-in-out infinite;
+}
+
+.particle-seven {
+  animation:
+    particleOrbitSeven 18s linear infinite reverse,
+    particleGlow 1.8s ease-in-out infinite;
+}
+
+.particle-eight {
+  animation:
+    particleOrbitEight 25s linear infinite,
+    particleGlow 1.8s ease-in-out infinite;
+}
+
+/* =========================================================
+   PHOENIX CORE
    ========================================================= */
 
 .vision-core {
@@ -275,14 +700,18 @@
   top: 50%;
   left: 50%;
 
-  width: 300px;
-  height: 300px;
+  width: 270px;
+  height: 270px;
 
   display: flex;
+
   align-items: center;
   justify-content: center;
 
-  transform: translate(-50%, -50%);
+  padding: 0;
+
+  transform:
+    translate(-50%, -50%);
 
   background: transparent !important;
   border: 0 !important;
@@ -291,112 +720,78 @@
 
   isolation: isolate;
 
-  z-index: 8;
+  cursor: pointer;
+
+  z-index: 20;
+
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.vision-core:focus-visible {
+  outline:
+    1px solid rgba(221, 214, 254, 0.95);
+
+  outline-offset: 14px;
+
+  border-radius: 50%;
+}
+
+.vision-core:active {
+  transform:
+    translate(-50%, -50%)
+    scale(0.97);
 }
 
 /* =========================================================
-   CORE AMBIENT ENERGY
+   CORE ENERGY FIELD
    ========================================================= */
 
-.vision-core::before {
-  content: "";
-
+.core-energy-field {
   position: absolute;
 
   top: 50%;
   left: 50%;
 
-  width: 230px;
-  height: 230px;
+  width: 290px;
+  height: 290px;
 
-  margin-left: -115px;
-  margin-top: -115px;
+  margin:
+    -145px 0 0 -145px;
 
   border-radius: 50%;
 
   background:
     radial-gradient(
       circle,
-      rgba(167, 139, 250, 0.48) 0%,
-      rgba(124, 58, 237, 0.2) 42%,
-      rgba(76, 29, 149, 0.06) 62%,
-      transparent 76%
+      rgba(139, 92, 246, 0.22),
+      rgba(124, 58, 237, 0.08) 42%,
+      transparent 72%
     );
-
-  filter: blur(12px);
-
-  animation:
-    coreBreathing 4s ease-in-out infinite;
-
-  z-index: -3;
-
-  pointer-events: none;
-}
-
-/* =========================================================
-   OUTER CORE FIELD
-   ========================================================= */
-
-.vision-core::after {
-  content: "";
-
-  position: absolute;
-
-  top: 50%;
-  left: 50%;
-
-  width: 390px;
-  height: 390px;
-
-  margin-left: -195px;
-  margin-top: -195px;
-
-  border-radius: 50%;
-
-  background:
-    conic-gradient(
-      from 0deg,
-      transparent 0deg,
-      transparent 45deg,
-      rgba(139, 92, 246, 0.25) 70deg,
-      rgba(196, 181, 253, 0.65) 74deg,
-      transparent 80deg,
-      transparent 170deg,
-      rgba(139, 92, 246, 0.18) 190deg,
-      transparent 215deg,
-      transparent 300deg,
-      rgba(167, 139, 250, 0.3) 325deg,
-      transparent 345deg,
-      transparent 360deg
-    );
-
-  -webkit-mask:
-    radial-gradient(
-      farthest-side,
-      transparent calc(100% - 1px),
-      #000 calc(100% - 1px)
-    );
-
-  mask:
-    radial-gradient(
-      farthest-side,
-      transparent calc(100% - 1px),
-      #000 calc(100% - 1px)
-    );
-
-  animation:
-    outerCoreField 14s linear infinite;
 
   filter:
-    drop-shadow(0 0 8px rgba(124, 58, 237, 0.25));
-
-  z-index: -4;
+    blur(8px);
 
   pointer-events: none;
+
+  z-index: 1;
+}
+
+.core-energy-field-two {
+  width: 340px;
+  height: 340px;
+
+  margin:
+    -170px 0 0 -170px;
+
+  opacity: 0.5;
+
+  filter:
+    blur(24px);
 }
 
 /* =========================================================
-   CORE RINGS — BASE
+   CORE RINGS
    ========================================================= */
 
 .core-ring {
@@ -405,61 +800,107 @@
   top: 50%;
   left: 50%;
 
-  margin: 0;
-
   border-radius: 50%;
 
-  background:
-    conic-gradient(
-      from 0deg,
-      transparent 0deg,
-      transparent 24deg,
-      rgba(139, 92, 246, 0.08) 38deg,
-      rgba(167, 139, 250, 0.9) 52deg,
-      rgba(255, 255, 255, 0.95) 58deg,
-      rgba(139, 92, 246, 0.35) 66deg,
-      transparent 86deg,
-      transparent 205deg,
-      rgba(139, 92, 246, 0.18) 225deg,
-      transparent 250deg,
-      transparent 360deg
-    );
+  border:
+    1px solid rgba(196, 181, 253, 0.3);
 
-  -webkit-mask:
-    radial-gradient(
-      farthest-side,
-      transparent calc(100% - 1.5px),
-      #000 calc(100% - 1.5px)
-    );
-
-  mask:
-    radial-gradient(
-      farthest-side,
-      transparent calc(100% - 1.5px),
-      #000 calc(100% - 1.5px)
-    );
+  transform:
+    translate(-50%, -50%);
 
   pointer-events: none;
-
-  transform-origin: center center;
-
-  will-change:
-    transform,
-    opacity;
-
-  box-shadow:
-    0 0 14px rgba(139, 92, 246, 0.12);
 
   z-index: 4;
 }
 
+.ring-one {
+  width: 160px;
+  height: 160px;
+
+  animation:
+    ringOne 6s linear infinite;
+}
+
+.ring-two {
+  width: 205px;
+  height: 205px;
+
+  opacity: 0.8;
+
+  animation:
+    ringTwo 9s linear infinite reverse;
+}
+
+.ring-three {
+  width: 255px;
+  height: 255px;
+
+  opacity: 0.58;
+
+  animation:
+    ringThree 14s linear infinite;
+}
+
+.ring-four {
+  width: 295px;
+  height: 295px;
+
+  opacity: 0.3;
+
+  border:
+    1px dashed rgba(196, 181, 253, 0.3);
+
+  animation:
+    ringFour 22s linear infinite reverse;
+}
+
 /* =========================================================
-   RING ORBITAL PARTICLES
+   INNER ENERGY ORBITS
    ========================================================= */
 
-.core-ring::before {
-  content: "";
+.core-energy-orbit {
+  position: absolute;
 
+  top: 50%;
+  left: 50%;
+
+  width: 130px;
+  height: 130px;
+
+  margin:
+    -65px 0 0 -65px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.2);
+
+  border-radius: 50%;
+
+  animation:
+    innerEnergyOrbit 5s linear infinite;
+
+  pointer-events: none;
+
+  z-index: 8;
+}
+
+.core-energy-orbit-two {
+  width: 170px;
+  height: 95px;
+
+  margin:
+    -47.5px 0 0 -85px;
+
+  border-color:
+    rgba(196, 181, 253, 0.16);
+
+  transform:
+    rotateX(65deg);
+
+  animation:
+    innerEnergyOrbitTwo 8s linear infinite reverse;
+}
+
+.core-energy-orbit span {
   position: absolute;
 
   top: -4px;
@@ -472,203 +913,12 @@
 
   border-radius: 50%;
 
-  background: #ffffff;
+  background: #fff;
 
   box-shadow:
-    0 0 6px #ffffff,
-    0 0 14px #c4b5fd,
-    0 0 28px rgba(139, 92, 246, 0.95);
-
-  transform-origin:
-    4px calc(50% + 4px);
-
-  pointer-events: none;
-}
-
-/* =========================================================
-   RING ONE
-   ========================================================= */
-
-.ring-one {
-  width: 180px;
-  height: 180px;
-
-  margin-left: -90px;
-  margin-top: -90px;
-
-  animation:
-    ringOrbitOne 7s linear infinite;
-}
-
-.ring-one::before {
-  animation:
-    ringParticleOne 7s linear infinite;
-}
-
-/* =========================================================
-   RING TWO
-   ========================================================= */
-
-.ring-two {
-  width: 230px;
-  height: 230px;
-
-  margin-left: -115px;
-  margin-top: -115px;
-
-  opacity: 0.78;
-
-  background:
-    conic-gradient(
-      from 180deg,
-      transparent 0deg,
-      transparent 35deg,
-      rgba(167, 139, 250, 0.12) 48deg,
-      rgba(196, 181, 253, 0.75) 62deg,
-      rgba(255, 255, 255, 0.9) 68deg,
-      rgba(139, 92, 246, 0.25) 80deg,
-      transparent 105deg,
-      transparent 225deg,
-      rgba(139, 92, 246, 0.18) 245deg,
-      transparent 270deg,
-      transparent 360deg
-    );
-
-  animation:
-    ringOrbitTwo 11s linear infinite;
-}
-
-.ring-two::before {
-  width: 7px;
-  height: 7px;
-
-  margin-left: -3.5px;
-
-  box-shadow:
-    0 0 6px #ffffff,
-    0 0 14px #a78bfa,
-    0 0 30px rgba(167, 139, 250, 0.9);
-
-  animation:
-    ringParticleTwo 11s linear infinite;
-}
-
-/* =========================================================
-   RING THREE
-   ========================================================= */
-
-.ring-three {
-  width: 290px;
-  height: 290px;
-
-  margin-left: -145px;
-  margin-top: -145px;
-
-  opacity: 0.62;
-
-  background:
-    conic-gradient(
-      from 90deg,
-      transparent 0deg,
-      transparent 50deg,
-      rgba(139, 92, 246, 0.1) 68deg,
-      rgba(167, 139, 250, 0.45) 84deg,
-      rgba(196, 181, 253, 0.7) 90deg,
-      rgba(139, 92, 246, 0.16) 102deg,
-      transparent 125deg,
-      transparent 250deg,
-      rgba(139, 92, 246, 0.12) 270deg,
-      transparent 300deg,
-      transparent 360deg
-    );
-
-  animation:
-    ringOrbitThree 17s linear infinite;
-}
-
-.ring-three::before {
-  width: 6px;
-  height: 6px;
-
-  margin-left: -3px;
-
-  box-shadow:
-    0 0 5px #ffffff,
-    0 0 12px #a78bfa,
-    0 0 25px rgba(124, 58, 237, 0.9);
-
-  animation:
-    ringParticleThree 17s linear infinite;
-}
-
-/* =========================================================
-   ACTIVE CORE STATES
-   ========================================================= */
-
-.vision-core.core-active-ai .core-ring {
-  filter:
-    drop-shadow(0 0 8px rgba(139, 92, 246, 0.45));
-
-  opacity: 0.95;
-}
-
-.vision-core.core-active-robotics .core-ring {
-  filter:
-    drop-shadow(0 0 8px rgba(99, 102, 241, 0.45));
-}
-
-.vision-core.core-active-space .core-ring {
-  filter:
-    drop-shadow(0 0 8px rgba(56, 189, 248, 0.5));
-}
-
-.vision-core.core-active-phoenix .core-ring {
-  filter:
-    drop-shadow(0 0 9px rgba(249, 115, 22, 0.5));
-}
-
-/* =========================================================
-   ACTIVE CORE ENERGY
-   ========================================================= */
-
-.vision-core.core-active-ai::before {
-  background:
-    radial-gradient(
-      circle,
-      rgba(139, 92, 246, 0.65),
-      rgba(124, 58, 237, 0.22) 45%,
-      transparent 76%
-    );
-}
-
-.vision-core.core-active-robotics::before {
-  background:
-    radial-gradient(
-      circle,
-      rgba(99, 102, 241, 0.62),
-      rgba(79, 70, 229, 0.2) 45%,
-      transparent 76%
-    );
-}
-
-.vision-core.core-active-space::before {
-  background:
-    radial-gradient(
-      circle,
-      rgba(56, 189, 248, 0.62),
-      rgba(14, 165, 233, 0.18) 45%,
-      transparent 76%
-    );
-}
-
-.vision-core.core-active-phoenix::before {
-  background:
-    radial-gradient(
-      circle,
-      rgba(249, 115, 22, 0.62),
-      rgba(234, 88, 12, 0.18) 45%,
-      transparent 76%
-    );
+    0 0 8px #fff,
+    0 0 20px #a78bfa,
+    0 0 35px rgba(139, 92, 246, 1);
 }
 
 /* =========================================================
@@ -676,165 +926,161 @@
    ========================================================= */
 
 .core-center {
+  --core-scale: 1;
+
   position: relative;
 
-  z-index: 20;
-
-  width: 120px;
-  height: 120px;
+  width: 112px;
+  height: 112px;
 
   display: flex;
+
   flex-direction: column;
+
   align-items: center;
   justify-content: center;
 
+  gap: 5px;
+
   border:
-    1px solid rgba(221, 214, 254, 0.95);
+    1px solid rgba(255, 255, 255, 0.65);
 
   border-radius: 50%;
 
   background:
     radial-gradient(
-      circle at 35% 30%,
-      #a78bfa 0%,
-      #7c3aed 28%,
-      #4c1d95 55%,
-      #08030f 100%
+      circle at 38% 30%,
+      rgba(255, 255, 255, 0.55),
+      rgba(167, 139, 250, 0.55) 12%,
+      rgba(76, 29, 149, 0.92) 52%,
+      rgba(13, 7, 27, 0.98) 100%
     );
 
   box-shadow:
-    0 0 30px rgba(139, 92, 246, 0.85),
-    0 0 90px rgba(124, 58, 237, 0.45),
-    0 0 150px rgba(124, 58, 237, 0.16),
-    inset 0 0 30px rgba(255, 255, 255, 0.08);
+    0 0 24px rgba(167, 139, 250, 0.85),
+    0 0 70px rgba(124, 58, 237, 0.55),
+    inset 0 0 28px rgba(255, 255, 255, 0.1);
 
-  animation:
-    coreCenterPulse 3.5s ease-in-out infinite;
+  transform:
+    scale(var(--core-scale));
 
   transition:
-    box-shadow 0.45s ease,
-    background 0.45s ease,
-    transform 0.45s ease;
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
 
-  overflow: visible;
+  z-index: 12;
 }
 
-.core-center::before {
-  content: "";
+.core-center span:first-child {
+  color:
+    rgba(221, 214, 254, 0.9);
 
-  position: absolute;
+  font-size:
+    0.55rem;
 
-  inset: -12px;
+  font-weight:
+    800;
 
-  border:
-    1px solid rgba(196, 181, 253, 0.35);
-
-  border-radius: 50%;
-
-  box-shadow:
-    0 0 20px rgba(139, 92, 246, 0.2);
-
-  animation:
-    coreHalo 3s ease-in-out infinite;
-
-  pointer-events: none;
+  letter-spacing:
+    0.25em;
 }
 
-.core-center::after {
-  content: "";
+.core-center span:last-child {
+  color: #fff;
 
-  position: absolute;
+  font-size:
+    1.05rem;
 
-  inset: -28px;
+  font-weight:
+    900;
 
-  border-radius: 50%;
-
-  background:
-    conic-gradient(
-      from 0deg,
-      transparent 0deg,
-      rgba(196, 181, 253, 0.5) 18deg,
-      transparent 34deg,
-      transparent 145deg,
-      rgba(167, 139, 250, 0.4) 165deg,
-      transparent 190deg,
-      transparent 285deg,
-      rgba(255, 255, 255, 0.5) 305deg,
-      transparent 325deg
-    );
-
-  -webkit-mask:
-    radial-gradient(
-      farthest-side,
-      transparent calc(100% - 1px),
-      #000 calc(100% - 1px)
-    );
-
-  mask:
-    radial-gradient(
-      farthest-side,
-      transparent calc(100% - 1px),
-      #000 calc(100% - 1px)
-    );
-
-  animation:
-    coreHaloOrbit 8s linear infinite;
-
-  pointer-events: none;
-}
-
-.core-center span {
-  position: relative;
-
-  color: #ddd6fe;
-
-  font-size: 0.7rem;
-  letter-spacing: 0.25em;
-
-  text-shadow:
-    0 0 8px rgba(196, 181, 253, 0.4);
-}
-
-.core-center strong {
-  position: relative;
-
-  margin-top: 5px;
-
-  color: #ffffff;
-
-  font-size: 1rem;
-  letter-spacing: 0.2em;
-
-  text-shadow:
-    0 0 12px rgba(255, 255, 255, 0.45);
+  letter-spacing:
+    0.16em;
 }
 
 /* =========================================================
-   CORE SIGNAL
+   CORE TELEMETRY
    ========================================================= */
 
-.core-signal {
+.core-telemetry {
   position: absolute;
 
-  top: calc(100% + 12px);
+  z-index: 25;
 
-  white-space: nowrap;
+  display: flex;
+  flex-direction: column;
 
-  color: #c4b5fd;
+  gap: 4px;
 
-  font-size: 0.55rem;
+  color: #746b89;
+
+  font-size: 0.48rem;
   font-weight: 800;
 
-  letter-spacing: 0.22em;
+  letter-spacing: 0.2em;
+  line-height: 1.3;
 
   text-transform: uppercase;
 
-  text-shadow:
-    0 0 10px rgba(167, 139, 250, 0.6),
-    0 0 25px rgba(124, 58, 237, 0.35);
+  pointer-events: none;
 
-  animation:
-    signalAppear 0.3s ease forwards;
+  text-shadow:
+    0 0 10px rgba(139, 92, 246, 0.35);
+}
+
+.core-telemetry b {
+  color: #c4b5fd;
+
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+}
+
+.telemetry-top {
+  top: 122px;
+  left: 50%;
+
+  transform:
+    translateX(-50%);
+
+  text-align: center;
+}
+
+.telemetry-left {
+  top: 50%;
+  left: 215px;
+
+  transform:
+    translateY(-50%);
+
+  text-align: right;
+}
+
+.telemetry-right {
+  top: 50%;
+  right: 215px;
+
+  transform:
+    translateY(-50%);
+}
+
+.telemetry-bottom {
+  bottom: 120px;
+  left: 50%;
+
+  transform:
+    translateX(-50%);
+
+  text-align: center;
+}
+
+.telemetry-orbit {
+  top: 27%;
+  right: 145px;
+}
+
+.telemetry-node {
+  bottom: 27%;
+  left: 145px;
 }
 
 /* =========================================================
@@ -844,67 +1090,240 @@
 .vision-node {
   position: absolute;
 
-  z-index: 10;
+  z-index: 15;
 
-  width: 250px;
-  min-height: 175px;
+  width: 220px;
+  min-height: 150px;
 
-  padding: 28px;
+  padding: 22px;
 
   overflow: hidden;
 
   border:
-    1px solid rgba(139, 92, 246, 0.45);
+    1px solid rgba(139, 92, 246, 0.42);
 
   border-radius: 18px;
 
   background:
     linear-gradient(
       145deg,
-      rgba(19, 12, 36, 0.96),
-      rgba(7, 4, 14, 0.98)
+      rgba(18, 11, 34, 0.96),
+      rgba(5, 3, 11, 0.98)
     );
 
   box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.45),
-    inset 0 0 25px rgba(139, 92, 246, 0.04);
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    inset 0 0 30px rgba(139, 92, 246, 0.04);
 
-  transition:
-    transform 0.35s ease,
-    border-color 0.35s ease,
-    box-shadow 0.35s ease,
-    opacity 0.35s ease,
-    filter 0.35s ease;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 
   cursor: pointer;
 
   outline: none;
 
-  backdrop-filter: blur(12px);
+  transition:
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease,
+    opacity 0.45s ease,
+    filter 0.45s ease;
+
+  will-change:
+    transform,
+    box-shadow,
+    opacity,
+    filter;
 }
 
 .vision-node::before {
   content: "";
 
   position: absolute;
-
   inset: 0;
 
   background:
     radial-gradient(
       circle at 50% 0%,
-      rgba(139, 92, 246, 0.13),
-      transparent 60%
+      rgba(139, 92, 246, 0.14),
+      transparent 62%
     );
 
   pointer-events: none;
-
-  opacity: 0.8;
 }
 
 .vision-node::after {
   content: "";
 
+  position: absolute;
+  inset: 1px;
+
+  border-radius: 17px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.035),
+      transparent 35%,
+      transparent 70%,
+      rgba(139, 92, 246, 0.025)
+    );
+
+  pointer-events: none;
+}
+
+.node-ai,
+.node-robotics {
+  top: 20px;
+}
+
+.node-ai {
+  left: 18px;
+}
+
+.node-robotics {
+  right: 18px;
+}
+
+.node-space,
+.node-phoenix {
+  bottom: 22px;
+}
+
+.node-space {
+  left: 18px;
+}
+
+.node-phoenix {
+  right: 18px;
+}
+
+/* =========================================================
+   NODE CONTENT
+   ========================================================= */
+
+.node-icon {
+  position: relative;
+
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: #ddd6fe;
+
+  font-size: 1.65rem;
+
+  line-height: 1;
+
+  text-shadow:
+    0 0 14px rgba(167, 139, 250, 0.7);
+
+  transition:
+    transform 0.35s ease;
+}
+
+.vision-node small {
+  position: relative;
+  z-index: 2;
+
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: #a78bfa;
+
+  font-size: 0.55rem;
+  font-weight: 900;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+}
+
+.vision-node h3 {
+  position: relative;
+  z-index: 2;
+
+  margin: 0 0 10px;
+
+  color: #f8f7ff;
+
+  font-size: 1.15rem;
+  font-weight: 800;
+
+  line-height: 1.15;
+}
+
+.vision-node p {
+  position: relative;
+  z-index: 2;
+
+  margin: 0;
+
+  color: #aaa2bd;
+
+  font-size: 0.82rem;
+
+  line-height: 1.55;
+}
+
+.vision-node:hover,
+.vision-node:focus-visible,
+.vision-node.node-active {
+  border-color:
+    rgba(196, 181, 253, 0.65);
+
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.6),
+    0 0 30px rgba(124, 58, 237, 0.2),
+    inset 0 0 35px rgba(139, 92, 246, 0.08);
+}
+
+.vision-node:hover .node-icon,
+.vision-node:focus-visible .node-icon {
+  transform:
+    translateY(-2px)
+    scale(1.06);
+}
+
+.node-status {
+  position: relative;
+  z-index: 3;
+
+  display: inline-block;
+
+  margin-top: 10px;
+
+  color: #c4b5fd;
+
+  font-size: 0.5rem;
+  font-weight: 900;
+
+  letter-spacing: 0.14em;
+}
+
+.node-energy-line {
+  position: absolute;
+
+  left: 10%;
+  bottom: 0;
+
+  width: 80%;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(167, 139, 250, 0.8),
+      transparent
+    );
+
+  animation:
+    nodeEnergy 3s ease-in-out infinite;
+}
+
+.node-scan-line {
   position: absolute;
 
   top: 0;
@@ -917,150 +1336,60 @@
     linear-gradient(
       90deg,
       transparent,
-      rgba(196, 181, 253, 0.95),
+      rgba(255, 255, 255, 0.8),
       transparent
     );
 
+  opacity: 0;
+
   animation:
-    nodeScan 6s linear infinite;
+    nodeScan 5s ease-in-out infinite;
+}
+
+.node-corner {
+  position: absolute;
+
+  width: 18px;
+  height: 18px;
+
+  border-color:
+    rgba(196, 181, 253, 0.6);
 
   pointer-events: none;
 }
 
-/* =========================================================
-   NODE INTERACTION
-   ========================================================= */
+.corner-top {
+  top: 9px;
+  left: 9px;
 
-.vision-node:hover,
-.vision-node:focus-visible {
-  transform:
-    translateY(-8px)
-    scale(1.04);
-
-  border-color:
-    #a78bfa;
-
-  box-shadow:
-    0 25px 70px rgba(124, 58, 237, 0.28),
-    0 0 35px rgba(139, 92, 246, 0.18),
-    inset 0 0 30px rgba(139, 92, 246, 0.08);
+  border-top: 1px solid;
+  border-left: 1px solid;
 }
 
-.vision-node.node-active {
-  border-color:
-    #c4b5fd;
+.corner-bottom {
+  right: 9px;
+  bottom: 9px;
 
-  box-shadow:
-    0 25px 75px rgba(124, 58, 237, 0.38),
-    0 0 45px rgba(139, 92, 246, 0.24),
-    inset 0 0 30px rgba(139, 92, 246, 0.1);
+  border-right: 1px solid;
+  border-bottom: 1px solid;
 }
 
-/* =========================================================
-   NODE CONTENT
-   ========================================================= */
+.node-data-stream {
+  position: absolute;
 
-.node-icon {
-  position: relative;
+  right: 10px;
+  top: 9px;
 
-  z-index: 2;
+  color:
+    rgba(196, 181, 253, 0.2);
 
-  display: block;
+  font-size:
+    0.38rem;
 
-  margin-bottom: 12px;
+  font-weight: 900;
 
-  font-size: 1.8rem;
-
-  filter:
-    drop-shadow(
-      0 0 8px rgba(167, 139, 250, 0.3)
-    );
-
-  transition:
-    transform 0.35s ease,
-    filter 0.35s ease;
-}
-
-.vision-node:hover .node-icon,
-.vision-node:focus-visible .node-icon,
-.vision-node.node-active .node-icon {
-  transform:
-    translateY(-3px)
-    scale(1.1);
-
-  filter:
-    drop-shadow(
-      0 0 14px rgba(167, 139, 250, 0.65)
-    );
-}
-
-.vision-node small {
-  position: relative;
-
-  z-index: 2;
-
-  display: block;
-
-  margin-bottom: 8px;
-
-  color: #8b5cf6;
-
-  font-size: 0.65rem;
-  font-weight: 700;
-
-  letter-spacing: 0.2em;
-}
-
-.vision-node h3 {
-  position: relative;
-
-  z-index: 2;
-
-  margin: 0 0 12px;
-
-  color: #ffffff;
-
-  font-size: 1.25rem;
-
-  line-height: 1.2;
-}
-
-.vision-node p {
-  position: relative;
-
-  z-index: 2;
-
-  margin: 0;
-
-  color: #9f97b3;
-
-  font-size: 0.9rem;
-
-  line-height: 1.6;
-}
-
-/* =========================================================
-   NODE POSITIONS
-   ========================================================= */
-
-.node-ai {
-  top: 40px;
-  left: 40px;
-}
-
-.node-robotics {
-  top: 40px;
-  right: 40px;
-}
-
-.node-space {
-  bottom: 40px;
-  left: 40px;
-}
-
-.node-phoenix {
-  right: 40px;
-  bottom: 40px;
+  letter-spacing:
+    0.12em;
 }
 
 /* =========================================================
@@ -1070,9 +1399,9 @@
 .connection {
   position: absolute;
 
-  z-index: 3;
+  z-index: 7;
 
-  height: 1px;
+  height: 2px;
 
   overflow: visible;
 
@@ -1082,187 +1411,256 @@
     linear-gradient(
       90deg,
       transparent,
-      rgba(139, 92, 246, 0.65),
+      rgba(139, 92, 246, 0.55),
       transparent
     );
 
-  opacity: 0.35;
+  opacity: 0.3;
 
   pointer-events: none;
 
   transition:
-    opacity 0.35s ease,
-    transform 0.35s ease,
-    height 0.35s ease,
-    box-shadow 0.35s ease;
+    opacity 0.45s ease,
+    filter 0.35s ease;
 }
 
 .connection::before {
   content: "";
 
   position: absolute;
+  inset: -3px 0;
 
-  inset: -2px 0;
+  background: inherit;
 
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(167, 139, 250, 0.35),
-      transparent
-    );
+  filter: blur(3px);
 
-  filter: blur(2px);
-
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
-.connection::after {
-  content: "";
+.connection-active {
+  height: 3px;
 
+  opacity: 1 !important;
+
+  filter:
+    drop-shadow(
+      0 0 8px rgba(167, 139, 250, 0.8)
+    );
+}
+
+.connection-ai,
+.connection-robotics {
+  top: 24%;
+}
+
+.connection-space,
+.connection-phoenix {
+  bottom: 24%;
+}
+
+.connection-ai {
+  width: 230px;
+  left: 235px;
+
+  transform:
+    rotate(25deg);
+}
+
+.connection-robotics {
+  width: 230px;
+  right: 235px;
+
+  transform:
+    rotate(-25deg);
+}
+
+.connection-space {
+  width: 230px;
+  left: 235px;
+
+  transform:
+    rotate(-25deg);
+}
+
+.connection-phoenix {
+  width: 230px;
+  right: 235px;
+
+  transform:
+    rotate(25deg);
+}
+
+.energy-particle {
   position: absolute;
 
   top: 50%;
-  left: -12px;
+  left: -10px;
 
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
 
   border-radius: 50%;
 
-  background: #c4b5fd;
+  background: #fff;
 
   box-shadow:
-    0 0 8px #a78bfa,
-    0 0 18px rgba(139, 92, 246, 0.85),
-    0 0 30px rgba(124, 58, 237, 0.45);
+    0 0 7px #fff,
+    0 0 16px #a78bfa,
+    0 0 30px rgba(139, 92, 246, 0.9);
 
   transform:
     translateY(-50%);
 
   animation:
-    energyTravel 3s linear infinite;
+    energyTravel 2.2s linear infinite;
+}
+
+.energy-particle-two {
+  animation-delay: 1.1s;
+}
+
+.energy-particle-three {
+  animation-delay: 1.65s;
 }
 
 /* =========================================================
-   CONNECTION GEOMETRY
+   ORBIT MARKERS
    ========================================================= */
 
-.connection-ai {
-  width: 280px;
+.orbit-marker {
+  position: absolute;
 
-  top: 190px;
-  left: 255px;
+  width: 18px;
+  height: 18px;
 
-  transform: rotate(25deg);
+  border:
+    1px solid rgba(196, 181, 253, 0.35);
+
+  transform:
+    rotate(45deg);
+
+  pointer-events: none;
+
+  z-index: 6;
+
+  animation:
+    markerFloat 4s ease-in-out infinite;
 }
 
-.connection-robotics {
-  width: 280px;
+.orbit-marker span {
+  position: absolute;
 
-  top: 190px;
-  right: 255px;
+  top: 50%;
+  left: 50%;
 
-  transform: rotate(-25deg);
-}
+  width: 4px;
+  height: 4px;
 
-.connection-space {
-  width: 280px;
+  border-radius: 50%;
 
-  bottom: 190px;
-  left: 255px;
-
-  transform: rotate(-25deg);
-}
-
-.connection-phoenix {
-  width: 280px;
-
-  right: 255px;
-  bottom: 190px;
-
-  transform: rotate(25deg);
-}
-
-/* =========================================================
-   ACTIVE CONNECTIONS
-   ========================================================= */
-
-.connection[style*="opacity: 1"] {
-  height: 2px;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      #a78bfa,
-      #ffffff,
-      #a78bfa,
-      transparent
-    );
+  background: #fff;
 
   box-shadow:
-    0 0 10px rgba(139, 92, 246, 0.7),
-    0 0 25px rgba(124, 58, 237, 0.3);
+    0 0 10px #a78bfa;
+
+  transform:
+    translate(-50%, -50%);
 }
 
-.connection[style*="opacity: 1"]::after {
-  width: 8px;
-  height: 8px;
+.marker-one {
+  top: 92px;
+  left: 50%;
 
-  background: #ffffff;
+  margin-left: -9px;
+}
 
-  box-shadow:
-    0 0 10px #ffffff,
-    0 0 20px #a78bfa,
-    0 0 35px rgba(139, 92, 246, 0.9);
+.marker-two {
+  top: 50%;
+  right: 92px;
 
-  animation-duration: 1.1s;
+  margin-top: -9px;
+}
+
+.marker-three {
+  bottom: 92px;
+  left: 50%;
+
+  margin-left: -9px;
+}
+
+.marker-four {
+  top: 50%;
+  left: 92px;
+
+  margin-top: -9px;
+}
+
+.marker-five {
+  top: 132px;
+  left: 24%;
+}
+
+.marker-six {
+  right: 24%;
+  bottom: 132px;
 }
 
 /* =========================================================
-   SYSTEM FOOTER
+   SYSTEM STATUS RAIL
    ========================================================= */
 
-.vision-footer {
-  position: relative;
+.system-status-rail {
+  position: absolute;
 
-  z-index: 20;
+  left: 50%;
+  bottom: 4px;
 
-  display: flex;
+  z-index: 30;
 
-  justify-content: space-between;
-
-  gap: 30px;
-
-  max-width: 1050px;
-
-  margin: 30px auto 0;
-
-  padding-top: 25px;
-
-  border-top:
-    1px solid rgba(139, 92, 246, 0.2);
-
-  color: #766d88;
-
-  font-size: 0.65rem;
-  font-weight: 700;
-
-  letter-spacing: 0.2em;
-}
-
-.vision-footer span {
   display: flex;
 
   align-items: center;
 
-  gap: 8px;
+  gap: 20px;
+
+  padding: 7px 14px;
+
+  border:
+    1px solid rgba(139, 92, 246, 0.14);
+
+  background:
+    rgba(5, 3, 11, 0.62);
+
+  color:
+    rgba(196, 181, 253, 0.48);
+
+  font-size: 0.4rem;
+  font-weight: 900;
+
+  letter-spacing: 0.17em;
+
+  transform:
+    translateX(-50%);
+
+  white-space: nowrap;
+
+  pointer-events: none;
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
-.vision-footer i {
-  width: 7px;
-  height: 7px;
+.system-status-rail span {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+}
+
+.system-status-rail i {
+  width: 5px;
+  height: 5px;
 
   flex: 0 0 auto;
 
@@ -1271,196 +1669,557 @@
   background: #22c55e;
 
   box-shadow:
-    0 0 10px #22c55e,
-    0 0 20px rgba(34, 197, 94, 0.35);
+    0 0 8px #22c55e;
 
   animation:
     onlinePulse 2s ease-in-out infinite;
 }
 
 /* =========================================================
-   CORE ANIMATIONS
+   DATA RAILS
    ========================================================= */
 
-@keyframes coreBreathing {
-  0%,
-  100% {
-    transform: scale(0.82);
-    opacity: 0.35;
-  }
+.core-data-rail {
+  position: absolute;
 
-  50% {
-    transform: scale(1.18);
-    opacity: 0.95;
-  }
+  top: 50%;
+
+  width: 1px;
+  height: 110px;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  opacity: 0.4;
+
+  transform:
+    translateY(-50%);
+
+  pointer-events: none;
+
+  z-index: 4;
 }
 
-@keyframes coreCenterPulse {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.055);
-  }
+.rail-left {
+  left: 10%;
 }
 
-@keyframes coreHalo {
-  0%,
-  100% {
-    transform: scale(0.95);
-    opacity: 0.25;
-  }
-
-  50% {
-    transform: scale(1.12);
-    opacity: 0.8;
-  }
+.rail-right {
+  right: 10%;
 }
 
-@keyframes coreHaloOrbit {
-  from {
-    transform: rotate(0deg);
-  }
+.core-data-rail span {
+  width: 7px;
+  height: 1px;
 
-  to {
-    transform: rotate(360deg);
-  }
+  background:
+    rgba(196, 181, 253, 0.65);
+
+  box-shadow:
+    0 0 8px rgba(167, 139, 250, 0.55);
 }
 
 /* =========================================================
-   RING ROTATIONS
+   ARCHITECTURE CORNERS
    ========================================================= */
 
-@keyframes ringOrbitOne {
-  0% {
-    transform: rotate(0deg) scale(0.96);
-    opacity: 0.5;
-  }
+.architecture-corner {
+  position: absolute;
 
-  25% {
-    opacity: 0.95;
-  }
+  width: 42px;
+  height: 42px;
 
-  50% {
-    transform: rotate(180deg) scale(1.04);
-    opacity: 0.7;
-  }
+  border-color:
+    rgba(139, 92, 246, 0.28);
 
-  75% {
-    opacity: 1;
-  }
+  pointer-events: none;
 
-  100% {
-    transform: rotate(360deg) scale(0.96);
-    opacity: 0.5;
-  }
+  z-index: 2;
 }
 
-@keyframes ringOrbitTwo {
-  0% {
-    transform: rotate(360deg) scale(1);
-    opacity: 0.4;
-  }
+.architecture-corner-tl {
+  top: 0;
+  left: 0;
 
-  50% {
-    transform: rotate(180deg) scale(1.075);
-    opacity: 0.85;
-  }
-
-  100% {
-    transform: rotate(0deg) scale(1);
-    opacity: 0.4;
-  }
+  border-top: 1px solid;
+  border-left: 1px solid;
 }
 
-@keyframes ringOrbitThree {
-  0% {
-    transform: rotate(0deg) scale(0.98);
-    opacity: 0.25;
-  }
+.architecture-corner-tr {
+  top: 0;
+  right: 0;
 
-  50% {
-    transform: rotate(-180deg) scale(1.07);
-    opacity: 0.65;
-  }
+  border-top: 1px solid;
+  border-right: 1px solid;
+}
 
-  100% {
-    transform: rotate(-360deg) scale(0.98);
-    opacity: 0.25;
-  }
+.architecture-corner-bl {
+  bottom: 0;
+  left: 0;
+
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+}
+
+.architecture-corner-br {
+  right: 0;
+  bottom: 0;
+
+  border-right: 1px solid;
+  border-bottom: 1px solid;
 }
 
 /* =========================================================
-   RING PARTICLE ORBITS
+   VISION FOOTER
    ========================================================= */
 
-@keyframes ringParticleOne {
-  from {
-    transform: rotate(0deg);
-  }
+.vision-footer {
+  position: relative;
 
-  to {
-    transform: rotate(360deg);
-  }
+  z-index: 30;
+
+  width: min(100%, 1050px);
+
+  margin: 16px auto 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  color:
+    rgba(196, 181, 253, 0.48);
+
+  font-size: 0.45rem;
+  font-weight: 900;
+
+  letter-spacing: 0.15em;
+  line-height: 1.5;
+
+  text-transform: uppercase;
 }
 
-@keyframes ringParticleTwo {
-  from {
-    transform: rotate(360deg);
-  }
+.vision-footer span {
+  display: inline-flex;
 
-  to {
-    transform: rotate(0deg);
-  }
+  align-items: center;
+
+  gap: 8px;
+
+  min-width: 0;
 }
 
-@keyframes ringParticleThree {
-  from {
-    transform: rotate(0deg);
-  }
+.vision-footer span:nth-child(2) {
+  text-align: center;
 
-  to {
-    transform: rotate(-360deg);
-  }
+  color:
+    rgba(196, 181, 253, 0.34);
+}
+
+.vision-footer span:last-child {
+  text-align: right;
+}
+
+.vision-footer i {
+  display: inline-block;
+
+  width: 5px;
+  height: 5px;
+
+  flex: 0 0 auto;
+
+  border-radius: 50%;
+
+  background: #22c55e;
+
+  box-shadow:
+    0 0 8px #22c55e;
+
+  animation:
+    onlinePulse 2s ease-in-out infinite;
 }
 
 /* =========================================================
-   OUTER ORBITS
+   ANIMATIONS
    ========================================================= */
-
-@keyframes outerCoreField {
-  0% {
-    transform: rotate(0deg) scale(1);
-  }
-
-  50% {
-    transform: rotate(180deg) scale(1.025);
-  }
-
-  100% {
-    transform: rotate(360deg) scale(1);
-  }
-}
 
 @keyframes architectureRotation {
-  0% {
+  from {
     transform:
       translate(-50%, -50%)
       rotate(0deg);
   }
 
-  100% {
+  to {
     transform:
       translate(-50%, -50%)
       rotate(360deg);
   }
 }
 
-/* =========================================================
-   ENERGY PARTICLE
-   ========================================================= */
+@keyframes orbitOuter {
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotate(360deg);
+  }
+}
+
+@keyframes orbitMiddle {
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotate(0deg)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate(-50%, -50%)
+      rotate(180deg)
+      scale(1.035);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotate(360deg)
+      scale(1);
+  }
+}
+
+@keyframes orbitInner {
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotate(-360deg);
+  }
+}
+
+@keyframes quantumOrbit {
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotateX(64deg)
+      rotateZ(0deg);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotateX(64deg)
+      rotateZ(360deg);
+  }
+}
+
+@keyframes orbitGlowOuter {
+  0%,
+  100% {
+    opacity: 0.72;
+    filter: drop-shadow(0 0 3px rgba(196, 181, 253, 0.35));
+  }
+
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 11px rgba(139, 92, 246, 0.72));
+  }
+}
+
+@keyframes orbitGlowMiddle {
+  0%,
+  100% {
+    opacity: 0.62;
+    filter: drop-shadow(0 0 3px rgba(139, 92, 246, 0.3));
+  }
+
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 9px rgba(167, 139, 250, 0.68));
+  }
+}
+
+@keyframes orbitGlowInner {
+  0%,
+  100% {
+    opacity: 0.55;
+    filter: drop-shadow(0 0 2px rgba(196, 181, 253, 0.25));
+  }
+
+  50% {
+    opacity: 0.95;
+    filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.58));
+  }
+}
+
+@keyframes quantumOrbitGlow {
+  0%,
+  100% {
+    opacity: 0.42;
+    filter: drop-shadow(0 0 4px rgba(196, 181, 253, 0.3));
+  }
+
+  50% {
+    opacity: 0.9;
+    filter: drop-shadow(0 0 13px rgba(124, 58, 237, 0.75));
+  }
+}
+
+@keyframes ringOne {
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotate(360deg);
+  }
+}
+
+@keyframes ringTwo {
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotate(-360deg);
+  }
+}
+
+@keyframes ringThree {
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotate(360deg);
+  }
+}
+
+@keyframes ringFour {
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotate(-360deg);
+  }
+}
+
+@keyframes innerEnergyOrbit {
+  from {
+    transform:
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      rotate(360deg);
+  }
+}
+
+@keyframes innerEnergyOrbitTwo {
+  from {
+    transform:
+      rotateX(65deg)
+      rotateZ(0deg);
+  }
+
+  to {
+    transform:
+      rotateX(65deg)
+      rotateZ(360deg);
+  }
+}
+
+@keyframes particleOrbitOne {
+  from {
+    transform:
+      rotate(0deg)
+      translateX(180px)
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      rotate(360deg)
+      translateX(180px)
+      rotate(-360deg);
+  }
+}
+
+@keyframes particleOrbitTwo {
+  from {
+    transform:
+      rotate(0deg)
+      translateX(150px)
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      rotate(360deg)
+      translateX(150px)
+      rotate(-360deg);
+  }
+}
+
+@keyframes particleOrbitThree {
+  from {
+    transform:
+      rotate(0deg)
+      translateX(205px)
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      rotate(360deg)
+      translateX(205px)
+      rotate(-360deg);
+  }
+}
+
+@keyframes particleOrbitFour {
+  from {
+    transform:
+      rotate(0deg)
+      translateX(125px)
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      rotate(360deg)
+      translateX(125px)
+      rotate(-360deg);
+  }
+}
+
+@keyframes particleOrbitFive {
+  from {
+    transform:
+      rotate(0deg)
+      translateX(235px)
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      rotate(360deg)
+      translateX(235px)
+      rotate(-360deg);
+  }
+}
+
+@keyframes particleOrbitSix {
+  from {
+    transform:
+      rotate(0deg)
+      translateX(105px)
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      rotate(360deg)
+      translateX(105px)
+      rotate(-360deg);
+  }
+}
+
+@keyframes particleOrbitSeven {
+  from {
+    transform:
+      rotate(0deg)
+      translateX(195px)
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      rotate(360deg)
+      translateX(195px)
+      rotate(-360deg);
+  }
+}
+
+@keyframes particleOrbitEight {
+  from {
+    transform:
+      rotate(0deg)
+      translateX(135px)
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      rotate(360deg)
+      translateX(135px)
+      rotate(-360deg);
+  }
+}
+
+@keyframes particleGlow {
+  0%,
+  100% {
+    opacity: 0.62;
+    filter: brightness(0.9);
+  }
+
+  50% {
+    opacity: 1;
+    filter: brightness(1.45);
+  }
+}
+
+@keyframes corePulseWave {
+  0% {
+    transform:
+      translate(-50%, -50%)
+      scale(0.5);
+
+    opacity: 0.8;
+  }
+
+  100% {
+    transform:
+      translate(-50%, -50%)
+      scale(1.35);
+
+    opacity: 0;
+  }
+}
 
 @keyframes energyTravel {
   0% {
@@ -1468,7 +2227,7 @@
     opacity: 0;
   }
 
-  8% {
+  10% {
     opacity: 1;
   }
 
@@ -1476,7 +2235,7 @@
     opacity: 1;
   }
 
-  92% {
+  90% {
     opacity: 1;
   }
 
@@ -1486,58 +2245,18 @@
   }
 }
 
-/* =========================================================
-   SIGNAL
-   ========================================================= */
-
-@keyframes signalAppear {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* =========================================================
-   ONLINE PULSE
-   ========================================================= */
-
-@keyframes onlinePulse {
+@keyframes nodeEnergy {
   0%,
   100% {
-    opacity: 0.45;
-    transform: scale(0.9);
+    opacity: 0.25;
+    transform: translateX(-20%);
   }
 
   50% {
     opacity: 1;
-    transform: scale(1.18);
+    transform: translateX(20%);
   }
 }
-
-/* =========================================================
-   STAR FIELD
-   ========================================================= */
-
-@keyframes starField {
-  from {
-    transform:
-      translate3d(0, 0, 0);
-  }
-
-  to {
-    transform:
-      translate3d(0, -170px, 0);
-  }
-}
-
-/* =========================================================
-   NODE SCAN
-   ========================================================= */
 
 @keyframes nodeScan {
   0% {
@@ -1550,13 +2269,325 @@
   }
 
   45% {
-    opacity: 0.75;
+    opacity: 0.8;
   }
 
-  60%,
+  65%,
   100% {
     left: 140%;
     opacity: 0;
+  }
+}
+
+@keyframes markerFloat {
+  0%,
+  100% {
+    opacity: 0.45;
+
+    transform:
+      rotate(45deg)
+      scale(0.9);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform:
+      rotate(45deg)
+      scale(1.15);
+  }
+}
+
+@keyframes labelFloat {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes starField {
+  from {
+    transform:
+      translate3d(0, 0, 0);
+  }
+
+  to {
+    transform:
+      translate3d(0, -145px, 0);
+  }
+}
+
+@keyframes onlinePulse {
+  0%,
+  100% {
+    opacity: 0.45;
+
+    transform:
+      scale(0.9);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform:
+      scale(1.18);
+  }
+}
+
+@keyframes signalAppear {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+@keyframes nodeEnergy {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: translateX(-20%);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateX(20%);
+  }
+}
+
+/* =========================================================
+   LARGE DESKTOP
+   ========================================================= */
+
+@media (min-width: 1500px) {
+  .vision {
+    padding-top: 92px;
+  }
+
+  .vision-system {
+    width: min(100%, 1240px);
+
+    height:
+      clamp(600px, calc(100vh - 250px), 700px);
+  }
+
+  .vision-node {
+    width: 235px;
+    min-height: 160px;
+  }
+
+  .node-ai,
+  .node-space {
+    left: 28px;
+  }
+
+  .node-robotics,
+  .node-phoenix {
+    right: 28px;
+  }
+
+  .connection-ai,
+  .connection-space {
+    left: 250px;
+  }
+
+  .connection-robotics,
+  .connection-phoenix {
+    right: 250px;
+  }
+}
+
+/* =========================================================
+   SHORT LAPTOP
+   1101px–1499px / <= 800px
+   ========================================================= */
+
+@media
+  (min-width: 1101px)
+  and (max-height: 800px) {
+
+  .vision {
+    padding:
+      48px 24px 28px;
+  }
+
+  .vision-header {
+    margin-bottom: 18px;
+  }
+
+  .vision-label {
+    margin-bottom: 8px;
+    font-size: 0.58rem;
+  }
+
+  .vision-header h2 {
+    font-size:
+      clamp(2.2rem, 4.3vw, 3.5rem);
+
+    margin-bottom: 8px;
+  }
+
+  .vision-header p {
+    font-size: 0.82rem;
+    line-height: 1.45;
+  }
+
+  .vision-system {
+    height:
+      calc(100vh - 175px);
+
+    min-height: 500px;
+    max-height: 590px;
+
+    width:
+      min(100%, 1180px);
+  }
+
+  .vision-node {
+    width: 220px;
+    min-height: 145px;
+
+    padding: 20px;
+  }
+
+  .node-ai,
+  .node-robotics {
+    top: 16px;
+  }
+
+  .node-space,
+  .node-phoenix {
+    bottom: 18px;
+  }
+
+  .node-ai,
+  .node-space {
+    left: 16px;
+  }
+
+  .node-robotics,
+  .node-phoenix {
+    right: 16px;
+  }
+
+  .vision-core {
+    width: 250px;
+    height: 250px;
+  }
+
+  .core-energy-field {
+    width: 270px;
+    height: 270px;
+
+    margin:
+      -135px 0 0 -135px;
+  }
+
+  .core-energy-field-two {
+    width: 310px;
+    height: 310px;
+
+    margin:
+      -155px 0 0 -155px;
+  }
+
+  .ring-one {
+    width: 150px;
+    height: 150px;
+  }
+
+  .ring-two {
+    width: 190px;
+    height: 190px;
+  }
+
+  .ring-three {
+    width: 240px;
+    height: 240px;
+  }
+
+  .ring-four {
+    width: 275px;
+    height: 275px;
+  }
+
+  .orbit-outer {
+    width: 540px;
+    height: 540px;
+  }
+
+  .orbit-middle {
+    width: 455px;
+    height: 455px;
+  }
+
+  .orbit-inner {
+    width: 365px;
+    height: 365px;
+  }
+
+  .orbit-quantum {
+    width: 295px;
+    height: 295px;
+  }
+
+  .telemetry-left {
+    left: 210px;
+  }
+
+  .telemetry-right {
+    right: 210px;
+  }
+
+  .telemetry-top {
+    top: 105px;
+  }
+
+  .telemetry-bottom {
+    bottom: 105px;
+  }
+
+  .telemetry-orbit {
+    right: 135px;
+  }
+
+  .telemetry-node {
+    left: 135px;
+  }
+
+  .connection-ai,
+  .connection-space {
+    left: 225px;
+  }
+
+  .connection-robotics,
+  .connection-phoenix {
+    right: 225px;
+  }
+
+  .connection {
+    width: 215px;
+  }
+
+  .system-status-rail {
+    bottom: 2px;
+  }
+
+  .vision-footer {
+    margin-top: 8px;
+    font-size: 0.4rem;
   }
 }
 
@@ -1566,81 +2597,46 @@
 
 @media (max-width: 1100px) {
   .vision {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding:
+      90px 20px 70px;
+  }
+
+  .vision-header {
+    margin-bottom: 45px;
   }
 
   .vision-system {
     width: min(100%, 950px);
-  }
 
-  .vision-node {
-    width: 225px;
-  }
-
-  .node-ai {
-    left: 20px;
-  }
-
-  .node-robotics {
-    right: 20px;
-  }
-
-  .node-space {
-    left: 20px;
-  }
-
-  .node-phoenix {
-    right: 20px;
-  }
-
-  .connection-ai,
-  .connection-space {
-    left: 220px;
-  }
-
-  .connection-robotics,
-  .connection-phoenix {
-    right: 220px;
-  }
-}
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
-@media (max-width: 900px) {
-  .vision {
-    padding: 90px 20px 70px;
-  }
-
-  .vision-header {
-    margin-bottom: 55px;
-  }
-
-  .vision-header h2 {
-    font-size:
-      clamp(2.8rem, 12vw, 4.5rem);
-  }
-
-  .vision-header p {
-    font-size: 1rem;
-  }
-
-  .vision-system {
+    height: auto;
     min-height: auto;
 
     display: grid;
 
-    grid-template-columns: 1fr;
+    grid-template-columns:
+      minmax(0, 1fr);
 
     gap: 22px;
 
-    padding-top: 40px;
+    padding:
+      35px 0 10px;
+
+    overflow: visible;
+
+    perspective: none;
   }
 
   .vision-system::before,
-  .vision-system::after {
+  .vision-system::after,
+  .vision-space-field,
+  .vision-grid,
+  .vision-grid-grid,
+  .vision-orbit,
+  .orbit-particle,
+  .orbit-marker,
+  .orbit-label,
+  .architecture-corner,
+  .core-data-rail {
     display: none;
   }
 
@@ -1659,14 +2655,12 @@
     transform: none;
 
     grid-row: 1;
+
+    justify-self: center;
   }
 
-  .vision-core::after {
-    width: 310px;
-    height: 310px;
-
-    margin-left: -155px;
-    margin-top: -155px;
+  .vision-core:active {
+    transform: scale(0.97);
   }
 
   .vision-node {
@@ -1677,11 +2671,17 @@
     bottom: auto;
     left: auto;
 
-    width: auto;
+    width: 100%;
 
     min-height: 0;
 
     padding: 26px;
+
+    transform: none !important;
+
+    opacity: 1 !important;
+
+    filter: none !important;
   }
 
   .node-ai {
@@ -1700,7 +2700,9 @@
     grid-row: 5;
   }
 
-  .connection {
+  .connection,
+  .core-telemetry,
+  .system-status-rail {
     display: none;
   }
 
@@ -1708,13 +2710,25 @@
     flex-direction: column;
 
     align-items: center;
+    justify-content: center;
 
+    gap: 12px;
+
+    margin-top: 28px;
+
+    text-align: center;
+  }
+
+  .vision-footer span,
+  .vision-footer span:nth-child(2),
+  .vision-footer span:last-child {
+    justify-content: center;
     text-align: center;
   }
 }
 
 /* =========================================================
-   SMALL MOBILE
+   MOBILE
    ========================================================= */
 
 @media (max-width: 560px) {
@@ -1724,9 +2738,11 @@
   }
 
   .vision-label {
-    font-size: 0.62rem;
+    gap: 8px;
 
-    letter-spacing: 0.2em;
+    font-size: 0.6rem;
+
+    letter-spacing: 0.17em;
   }
 
   .vision-header h2 {
@@ -1736,37 +2752,71 @@
 
   .vision-header p {
     font-size: 0.92rem;
-
     line-height: 1.7;
+  }
+
+  .vision-system {
+    gap: 18px;
+    padding-top: 28px;
   }
 
   .vision-core {
     width: 210px;
     height: 210px;
+
+    margin-bottom: 24px;
+  }
+
+  .core-energy-field {
+    width: 230px;
+    height: 230px;
+
+    margin:
+      -115px 0 0 -115px;
+  }
+
+  .core-energy-field-two {
+    width: 270px;
+    height: 270px;
+
+    margin:
+      -135px 0 0 -135px;
   }
 
   .ring-one {
     width: 155px;
     height: 155px;
-
-    margin-left: -77.5px;
-    margin-top: -77.5px;
   }
 
   .ring-two {
     width: 195px;
     height: 195px;
-
-    margin-left: -97.5px;
-    margin-top: -97.5px;
   }
 
   .ring-three {
     width: 240px;
     height: 240px;
+  }
 
-    margin-left: -120px;
-    margin-top: -120px;
+  .ring-four {
+    width: 270px;
+    height: 270px;
+  }
+
+  .core-energy-orbit {
+    width: 125px;
+    height: 125px;
+
+    margin:
+      -62.5px 0 0 -62.5px;
+  }
+
+  .core-energy-orbit-two {
+    width: 165px;
+    height: 92px;
+
+    margin:
+      -46px 0 0 -82.5px;
   }
 
   .core-center {
@@ -1774,95 +2824,1554 @@
     height: 105px;
   }
 
-  .core-center span {
-    font-size: 0.6rem;
-  }
-
-  .core-center strong {
-    font-size: 0.85rem;
-  }
-
   .vision-node {
-    padding: 23px;
-
-    border-radius: 16px;
+    padding: 22px;
   }
 
   .vision-node h3 {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
   }
 
   .vision-node p {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
+  }
+}
+
+/* =========================================================
+   TOUCH
+   ========================================================= */
+
+@media (hover: none) {
+  .vision-node:hover .node-icon,
+  .vision-node:focus-visible .node-icon {
+    transform: none;
+  }
+
+  .vision-core:hover .core-center {
+    --core-scale: 1;
+  }
+}
+
+/* =========================================================
+   HIGH CONTRAST
+   ========================================================= */
+
+@media (prefers-contrast: more) {
+  .vision {
+    --vision-muted: #d2cde0;
+  }
+
+  .vision-node {
+    border-color:
+      rgba(221, 214, 254, 0.7);
+
+    background:
+      rgba(5, 3, 11, 0.99);
+  }
+
+  .vision-node p,
+  .core-telemetry {
+    color: #c7c1d4;
   }
 
   .vision-footer {
-    gap: 14px;
-
-    font-size: 0.55rem;
-
-    letter-spacing: 0.14em;
+    color:
+      rgba(221, 214, 254, 0.75);
   }
 }
 
 /* =========================================================
-   ACCESSIBILITY
+   PRINT SAFETY
    ========================================================= */
 
-@media (prefers-reduced-motion: reduce) {
-  .vision-system::after {
-    animation-duration: 60s !important;
+@media print {
+  .vision {
+    background: #fff;
+    color: #000;
+    box-shadow: none;
   }
 
-  .vision-core::after {
-    animation-duration: 45s !important;
+  .vision::before,
+  .vision::after,
+  .vision-space-field,
+  .vision-grid,
+  .vision-grid-grid,
+  .vision-orbit,
+  .orbit-particle,
+  .orbit-label,
+  .orbit-marker,
+  .connection,
+  .core-data-rail,
+  .architecture-corner,
+  .system-status-rail {
+    display: none !important;
   }
 
-  .ring-one {
-    animation-duration: 35s !important;
+  .vision-node {
+    color: #000;
+    background: #fff;
+    border: 1px solid #999;
+    box-shadow: none;
+    backdrop-filter: none;
   }
 
-  .ring-two {
-    animation-duration: 50s !important;
+  .vision-node h3,
+  .vision-node p,
+  .vision-node small {
+    color: #000;
+  }
+}
+
+/* =========================================================
+   MKB PHOENIX VISION
+   FINAL DESKTOP GEOMETRY LOCK
+   DO NOT REMOVE THE FOUR SYSTEM NODES
+   ========================================================= */
+
+@media (min-width: 1101px) {
+
+  /* -------------------------------------------------------
+     MAIN VISION CANVAS
+     ------------------------------------------------------- */
+
+  .vision {
+    width: 100%;
+    max-width: none;
+
+    min-height: 100vh;
+
+    box-sizing: border-box;
+
+    padding:
+      58px 24px 34px !important;
+
+    overflow: hidden;
   }
 
-  .ring-three {
-    animation-duration: 70s !important;
+
+  /* -------------------------------------------------------
+     HEADER
+     ------------------------------------------------------- */
+
+  .vision-header {
+    position: relative;
+
+    z-index: 50;
+
+    width: min(100%, 850px);
+
+    margin:
+      0 auto 16px !important;
+
+    transform: none !important;
+
+    text-align: center;
   }
 
-  .vision-node::after,
-  .connection::after,
-  .vision-footer i {
-    animation: none !important;
+  .vision-header h2 {
+    margin:
+      0 0 8px !important;
+
+    font-size:
+      clamp(2.4rem, 4.5vw, 4rem) !important;
+
+    line-height: 0.95;
   }
 
-  .core-center,
-  .core-center::before,
-  .core-center::after,
-  .vision-core::before {
-    animation: none !important;
+  .vision-header p {
+    max-width: 760px;
+
+    margin: 0 auto;
+
+    font-size:
+      0.9rem !important;
+
+    line-height:
+      1.5 !important;
+  }
+
+
+  /* -------------------------------------------------------
+     ARCHITECTURE AREA
+     ------------------------------------------------------- */
+
+  .vision-system {
+    position: relative;
+
+    width:
+      min(100%, 1180px) !important;
+
+    height:
+      540px !important;
+
+    min-height:
+      540px !important;
+
+    max-height:
+      540px !important;
+
+    margin:
+      0 auto !important;
+
+    padding: 0 !important;
+
+    overflow: visible !important;
+
+    contain: layout paint;
+
+    isolation: isolate;
+  }
+
+
+  /* -------------------------------------------------------
+     ★ FOUR NODE SYSTEM
+     THIS IS THE IMPORTANT FIX
+     ------------------------------------------------------- */
+
+  .vision-node {
+    position: absolute !important;
+
+    box-sizing: border-box !important;
+
+    width:
+      220px !important;
+
+    height:
+      160px !important;
+
+    min-height:
+      160px !important;
+
+    max-height:
+      160px !important;
+
+    padding:
+      20px !important;
+
+    margin: 0 !important;
+
+    overflow: hidden !important;
+
+    transform:
+      translateY(0)
+      scale(1) !important;
+
+    opacity: 1;
+
+    filter: brightness(1);
+
+    z-index: 15;
+  }
+
+
+  /* -------------------------------------------------------
+     01 · PHOENIX AI
+     TOP LEFT
+     ------------------------------------------------------- */
+
+  .vision-node.node-ai {
+    top:
+      20px !important;
+
+    left:
+      18px !important;
+
+    right:
+      auto !important;
+
+    bottom:
+      auto !important;
+  }
+
+
+  /* -------------------------------------------------------
+     02 · ROBOTICS
+     TOP RIGHT
+     ------------------------------------------------------- */
+
+  .vision-node.node-robotics {
+    top:
+      20px !important;
+
+    right:
+      18px !important;
+
+    left:
+      auto !important;
+
+    bottom:
+      auto !important;
+  }
+
+
+  /* -------------------------------------------------------
+     03 · PHOENIX SPACE
+     BOTTOM LEFT
+     ------------------------------------------------------- */
+
+  .vision-node.node-space {
+    bottom:
+      20px !important;
+
+    left:
+      18px !important;
+
+    top:
+      auto !important;
+
+    right:
+      auto !important;
+  }
+
+
+  /* -------------------------------------------------------
+     04 · PHOENIX VISION
+     BOTTOM RIGHT
+     ------------------------------------------------------- */
+
+  .vision-node.node-phoenix {
+    bottom:
+      20px !important;
+
+    right:
+      18px !important;
+
+    top:
+      auto !important;
+
+    left:
+      auto !important;
+  }
+
+
+  /* -------------------------------------------------------
+     NODE CONTENT
+     ------------------------------------------------------- */
+
+  .vision-node .node-icon {
+    display: block;
+
+    margin-bottom:
+      8px !important;
+
+    font-size:
+      1.35rem !important;
+  }
+
+  .vision-node small {
+    display: block;
+
+    margin-bottom:
+      7px !important;
+
+    font-size:
+      0.54rem !important;
+
+    line-height:
+      1.25 !important;
+
+    letter-spacing:
+      0.17em !important;
+  }
+
+  .vision-node h3 {
+    margin:
+      0 0 7px !important;
+
+    font-size:
+      1.05rem !important;
+
+    line-height:
+      1.15 !important;
+  }
+
+  .vision-node p {
+    margin: 0 !important;
+
+    font-size:
+      0.76rem !important;
+
+    line-height:
+      1.4 !important;
+  }
+
+
+  /* -------------------------------------------------------
+     CORE
+     ------------------------------------------------------- */
+
+  .vision-core {
+    position: absolute !important;
+
+    top:
+      50% !important;
+
+    left:
+      50% !important;
+
+    width:
+      250px !important;
+
+    height:
+      250px !important;
+
+    margin: 0 !important;
+
+    transform:
+      translate(-50%, -50%) !important;
+
+    z-index: 25;
+  }
+
+
+  /* -------------------------------------------------------
+     ORBITS
+     ------------------------------------------------------- */
+
+  .orbit-outer {
+    width:
+      520px !important;
+
+    height:
+      520px !important;
+  }
+
+  .orbit-middle {
+    width:
+      440px !important;
+
+    height:
+      440px !important;
+  }
+
+  .orbit-inner {
+    width:
+      350px !important;
+
+    height:
+      350px !important;
+  }
+
+  .orbit-quantum {
+    width:
+      285px !important;
+
+    height:
+      285px !important;
+  }
+
+
+  /* -------------------------------------------------------
+     CONNECTIONS
+     ------------------------------------------------------- */
+
+  .connection {
+    width:
+      210px !important;
+
+    z-index: 7;
+  }
+
+  .connection-ai {
+    top:
+      115px !important;
+
+    left:
+      205px !important;
+  }
+
+  .connection-robotics {
+    top:
+      115px !important;
+
+    right:
+      205px !important;
+  }
+
+  .connection-space {
+    bottom:
+      115px !important;
+
+    left:
+      205px !important;
+  }
+
+  .connection-phoenix {
+    bottom:
+      115px !important;
+
+    right:
+      205px !important;
+  }
+
+
+  /* -------------------------------------------------------
+     TELEMETRY
+     ------------------------------------------------------- */
+
+  .telemetry-top {
+    top:
+      75px !important;
+  }
+
+  .telemetry-bottom {
+    bottom:
+      75px !important;
+  }
+
+  .telemetry-left {
+    left:
+      265px !important;
+  }
+
+  .telemetry-right {
+    right:
+      265px !important;
+  }
+
+  .telemetry-orbit {
+    top:
+      27% !important;
+
+    right:
+      155px !important;
+  }
+
+  .telemetry-node {
+    bottom:
+      27% !important;
+
+    left:
+      155px !important;
+  }
+
+
+  /* -------------------------------------------------------
+     ORBIT LABELS
+     ------------------------------------------------------- */
+
+  .orbit-label-1 {
+    top:
+      62px !important;
+  }
+
+  .orbit-label-2 {
+    right:
+      55px !important;
+  }
+
+  .orbit-label-3 {
+    bottom:
+      62px !important;
+  }
+
+  .orbit-label-4 {
+    bottom:
+      62px !important;
+  }
+
+  .orbit-label-5 {
+    left:
+      55px !important;
+  }
+
+  .orbit-label-6 {
+    top:
+      105px !important;
+  }
+
+
+  /* -------------------------------------------------------
+     MARKERS
+     ------------------------------------------------------- */
+
+  .marker-one {
+    top:
+      92px !important;
+  }
+
+  .marker-two {
+    right:
+      92px !important;
+  }
+
+  .marker-three {
+    bottom:
+      92px !important;
+  }
+
+  .marker-four {
+    left:
+      92px !important;
+  }
+
+  .marker-five {
+    top:
+      130px !important;
+  }
+
+  .marker-six {
+    bottom:
+      130px !important;
+  }
+
+
+  /* -------------------------------------------------------
+     STATUS RAIL
+     ------------------------------------------------------- */
+
+  .system-status-rail {
+    bottom:
+      2px !important;
+
+    z-index:
+      40 !important;
+  }
+
+
+  /* -------------------------------------------------------
+     ARCHITECTURE CORNERS
+     ------------------------------------------------------- */
+
+  .architecture-corner-tl {
+    top:
+      0 !important;
+
+    left:
+      0 !important;
+  }
+
+  .architecture-corner-tr {
+    top:
+      0 !important;
+
+    right:
+      0 !important;
+  }
+
+  .architecture-corner-bl {
+    bottom:
+      0 !important;
+
+    left:
+      0 !important;
+  }
+
+  .architecture-corner-br {
+    bottom:
+      0 !important;
+
+    right:
+      0 !important;
+  }
+
+
+  /* -------------------------------------------------------
+     FOOTER
+     ------------------------------------------------------- */
+
+  .vision-footer {
+    position:
+      relative;
+
+    z-index:
+      40;
+
+    width:
+      min(100%, 1100px);
+
+    margin:
+      8px auto 0 !important;
+
+    display:
+      flex;
+
+    align-items:
+      center;
+
+    justify-content:
+      space-between;
+  }
+}
+
+
+/* =========================================================
+   SHORT LAPTOP — 1366 × 768
+   ========================================================= */
+
+@media
+  (min-width: 1101px)
+  and (max-height: 800px) {
+
+  .vision {
+    padding:
+      42px 18px 24px !important;
+  }
+
+  .vision-header {
+    margin-bottom:
+      10px !important;
+  }
+
+  .vision-header h2 {
+    font-size:
+      2.65rem !important;
+  }
+
+  .vision-header p {
+    font-size:
+      0.78rem !important;
+
+    line-height:
+      1.35 !important;
+  }
+
+  .vision-system {
+    width:
+      min(100%, 1180px) !important;
+
+    height:
+      510px !important;
+
+    min-height:
+      510px !important;
+
+    max-height:
+      510px !important;
+  }
+
+  /* FOUR BLOCKS */
+
+  .vision-node {
+    width:
+      220px !important;
+
+    height:
+      150px !important;
+
+    min-height:
+      150px !important;
+
+    max-height:
+      150px !important;
+
+    padding:
+      19px !important;
+  }
+
+  .vision-node.node-ai,
+  .vision-node.node-robotics {
+    top:
+      14px !important;
+  }
+
+  .vision-node.node-space,
+  .vision-node.node-phoenix {
+    bottom:
+      14px !important;
+  }
+
+  .vision-node.node-ai,
+  .vision-node.node-space {
+    left:
+      18px !important;
+  }
+
+  .vision-node.node-robotics,
+  .vision-node.node-phoenix {
+    right:
+      18px !important;
+  }
+
+  .vision-core {
+    width:
+      235px !important;
+
+    height:
+      235px !important;
+  }
+
+  .orbit-outer {
+    width:
+      500px !important;
+
+    height:
+      500px !important;
+  }
+
+  .orbit-middle {
+    width:
+      420px !important;
+
+    height:
+      420px !important;
+  }
+
+  .orbit-inner {
+    width:
+      335px !important;
+
+    height:
+      335px !important;
+  }
+
+  .orbit-quantum {
+    width:
+      275px !important;
+
+    height:
+      275px !important;
+  }
+
+  .connection {
+    width:
+      195px !important;
+  }
+
+  .connection-ai {
+    top:
+      105px !important;
+
+    left:
+      200px !important;
+  }
+
+  .connection-robotics {
+    top:
+      105px !important;
+
+    right:
+      200px !important;
+  }
+
+  .connection-space {
+    bottom:
+      105px !important;
+
+    left:
+      200px !important;
+  }
+
+  .connection-phoenix {
+    bottom:
+      105px !important;
+
+    right:
+      200px !important;
+  }
+
+  .system-status-rail {
+    bottom:
+      0 !important;
+  }
+
+  .vision-footer {
+    margin-top:
+      4px !important;
+  }
+}
+
+/* =========================================================
+   PHOENIX RUNTIME LAYER
+   Dynamic orbit + per-system colors + real anchors
+   This block intentionally comes last so no legacy geometry
+   lock can disable the live interaction layer.
+   ========================================================= */
+
+.vision-orbit {
+  will-change: transform, opacity, filter;
+}
+
+.orbit-outer {
+  animation:
+    phoenixOrbitOuter 18s linear infinite,
+    phoenixOrbitGlow 3.4s ease-in-out infinite !important;
+}
+
+.orbit-middle {
+  animation:
+    phoenixOrbitMiddle 13s linear infinite reverse,
+    phoenixOrbitGlow 4.2s ease-in-out infinite !important;
+}
+
+.orbit-inner {
+  animation:
+    phoenixOrbitInner 9s linear infinite,
+    phoenixOrbitGlow 3s ease-in-out infinite reverse !important;
+}
+
+.orbit-quantum {
+  animation:
+    phoenixOrbitQuantum 7s linear infinite,
+    quantumOrbitGlow 2.8s ease-in-out infinite !important;
+}
+
+@keyframes phoenixOrbitOuter {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(180deg) scale(1.008);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg) scale(1);
+  }
+}
+
+@keyframes phoenixOrbitMiddle {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(180deg) scale(1.025);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg) scale(1);
+  }
+}
+
+@keyframes phoenixOrbitInner {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(-180deg) scale(0.985);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(-360deg) scale(1);
+  }
+}
+
+@keyframes phoenixOrbitQuantum {
+  from {
+    transform: translate(-50%, -50%) rotateX(64deg) rotateZ(0deg) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotateX(64deg) rotateZ(180deg) scale(1.035);
+  }
+  to {
+    transform: translate(-50%, -50%) rotateX(64deg) rotateZ(360deg) scale(1);
+  }
+}
+
+@keyframes phoenixOrbitGlow {
+  0%,
+  100% {
+    opacity: 0.42;
+    filter:
+      drop-shadow(0 0 4px rgba(196, 181, 253, 0.35))
+      drop-shadow(0 0 14px rgba(124, 58, 237, 0.25));
+  }
+  50% {
+    opacity: 0.95;
+    filter:
+      drop-shadow(0 0 10px rgba(255, 255, 255, 0.55))
+      drop-shadow(0 0 28px rgba(139, 92, 246, 0.75))
+      drop-shadow(0 0 55px rgba(124, 58, 237, 0.45));
+  }
+}
+
+/* Orbit particles are always visibly alive. */
+.orbit-particle {
+  animation-duration: 7s, 1.35s !important;
+}
+
+/* ---------------------------------------------------------
+   FOUR SYSTEM COLOR SIGNATURES
+   --------------------------------------------------------- */
+
+.energy-ai {
+  --system-color: #38bdf8;
+  --system-color-soft: rgba(56, 189, 248, 0.28);
+  --system-color-strong: rgba(56, 189, 248, 0.82);
+}
+
+.energy-robotics {
+  --system-color: #a78bfa;
+  --system-color-soft: rgba(167, 139, 250, 0.28);
+  --system-color-strong: rgba(167, 139, 250, 0.82);
+}
+
+.energy-space {
+  --system-color: #34d399;
+  --system-color-soft: rgba(52, 211, 153, 0.28);
+  --system-color-strong: rgba(52, 211, 153, 0.82);
+}
+
+.energy-phoenix {
+  --system-color: #fb923c;
+  --system-color-soft: rgba(251, 146, 60, 0.28);
+  --system-color-strong: rgba(251, 146, 60, 0.82);
+}
+
+.vision-node {
+  color: var(--vision-text);
+  border-color: var(--system-color-soft) !important;
+  background:
+    linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--system-color) 10%, rgba(18, 11, 34, 0.96)),
+      rgba(5, 3, 11, 0.98)
+    ) !important;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 24px var(--system-color-soft),
+    inset 0 0 32px var(--system-color-soft) !important;
+}
+
+.vision-node::before {
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      var(--system-color-soft),
+      transparent 64%
+    ) !important;
+}
+
+.vision-node .node-icon,
+.vision-node small,
+.vision-node h3,
+.vision-node p,
+.vision-node .node-status {
+  text-shadow: 0 0 14px var(--system-color-soft);
+}
+
+.vision-node .node-icon,
+.vision-node small {
+  color: var(--system-color) !important;
+}
+
+.vision-node .node-energy-line {
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--system-color-strong),
+      #fff,
+      var(--system-color-strong),
+      transparent
+    ) !important;
+  box-shadow: 0 0 14px var(--system-color-soft);
+}
+
+.vision-node .node-scan-line {
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--system-color),
+      #fff,
+      var(--system-color),
+      transparent
+    ) !important;
+}
+
+.vision-node .node-corner {
+  border-color: var(--system-color-strong) !important;
+}
+
+.vision-node:hover,
+.vision-node:focus-visible,
+.vision-node.node-active,
+.vision-node.node-selected {
+  border-color: var(--system-color-strong) !important;
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.62),
+    0 0 18px var(--system-color-soft),
+    0 0 48px var(--system-color-soft),
+    inset 0 0 35px var(--system-color-soft) !important;
+}
+
+/* ---------------------------------------------------------
+   FIX THE LEGACY !important GEOMETRY OVERRIDE
+   --------------------------------------------------------- */
+
+@media (min-width: 1101px) {
+  .vision-node {
+    transform: translateY(0) scale(1) !important;
+    transition:
+      transform 0.45s cubic-bezier(.2, .8, .2, 1),
+      opacity 0.45s ease,
+      filter 0.45s ease,
+      border-color 0.35s ease,
+      box-shadow 0.35s ease !important;
+  }
+
+  .vision-node.node-active,
+  .vision-node.node-selected {
+    transform: translateY(-10px) scale(1.045) !important;
+  }
+}
+
+/* ---------------------------------------------------------
+   REAL HYPERLINK CARDS
+   --------------------------------------------------------- */
+
+.vision-node {
+  display: block;
+  box-sizing: border-box;
+  text-decoration: none !important;
+  cursor: pointer;
+  color: inherit;
+}
+
+.vision-node:visited {
+  color: inherit;
+}
+
+.vision-node:focus-visible {
+  outline: 2px solid var(--system-color-strong);
+  outline-offset: 5px;
+}
+
+@media (max-width: 1100px) {
+  .vision-node {
+    transform: none !important;
+  }
+
+  .vision-node.node-active,
+  .vision-node.node-selected {
+    transform: translateY(-4px) scale(1.01) !important;
+  }
+}
+
+/* =========================================================
+   PHOENIX VISION — FINAL CORNER NODE SAFE-ZONE FIX
+   ========================================================= */
+
+@media (min-width: 1101px) {
+
+  /* ---------------------------------------------
+     NETWORK / STANDBY
+     Keep telemetry outside Phoenix Space card
+     --------------------------------------------- */
+
+  .telemetry-node {
+    left: 260px !important;
+    bottom: 27% !important;
+    z-index: 8 !important;
+    pointer-events: none;
+  }
+
+  /* ---------------------------------------------
+     Bottom center telemetry safe spacing
+     --------------------------------------------- */
+
+  .telemetry-bottom {
+    z-index: 8 !important;
+  }
+
+  /* ---------------------------------------------
+     Four cards always stay above decorative
+     telemetry layers
+     --------------------------------------------- */
+
+  .vision-node {
+    z-index: 15 !important;
+  }
+
+  /* Active card remains above everything */
+  .vision-node.node-active,
+  .vision-node.node-selected {
+    z-index: 30 !important;
+  }
+}
+
+
+/* =========================================================
+   SHORT LAPTOP — 1366 × 768 SAFE LAYOUT
+   ========================================================= */
+
+@media (min-width: 1101px) and (max-height: 800px) {
+
+  /* Move NETWORK / STANDBY safely inward */
+  .telemetry-node {
+    left: 260px !important;
+    bottom: 135px !important;
+  }
+
+  /* Prevent bottom telemetry collision */
+  .telemetry-bottom {
+    bottom: 78px !important;
+  }
+
+  /* Keep cards above all system decorations */
+  .vision-node.node-space,
+  .vision-node.node-phoenix {
+    z-index: 20 !important;
+  }
+
+  /* Short laptop cards need slightly safer content space */
+  .vision-node {
+    overflow: hidden !important;
+  }
+
+  .vision-node h3 {
+    margin-bottom: 7px !important;
+  }
+
+  .vision-node p {
+    line-height: 1.35 !important;
+  }
+}
+
+
+
+/* =========================================================
+   PHOENIX VISION
+   FINAL ORBIT + CORE CENTER LOCK
+   Fixes red-marked offset / misaligned circular geometry
+   ========================================================= */
+
+@media (min-width: 1101px) {
+
+  .vision-system {
+    position: relative !important;
+    isolation: isolate !important;
+  }
+
+  /* ---------------------------------------------
+     HARD CENTER LOCK — ALL ORBITS
+     --------------------------------------------- */
+
+  .vision-orbit {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+
+    margin: 0 !important;
+
+    transform-origin: center center !important;
+
+    transform:
+      translate3d(-50%, -50%, 0)
+      !important;
+  }
+
+  /* ---------------------------------------------
+     CORE MUST USE THE EXACT SAME CENTER POINT
+     --------------------------------------------- */
+
+  .vision-core {
+    position: absolute !important;
+
+    top: 50% !important;
+    left: 50% !important;
+
+    margin: 0 !important;
+
+    transform:
+      translate3d(-50%, -50%, 0)
+      !important;
+
+    transform-origin: center center !important;
+  }
+
+  /* ---------------------------------------------
+     ANIMATED ORBITS
+     Each animation starts from the exact center.
+     --------------------------------------------- */
+
+  .orbit-outer {
+    animation:
+      phoenixOrbitOuterFixed 18s linear infinite,
+      phoenixOrbitGlow 3.4s ease-in-out infinite !important;
+  }
+
+  .orbit-middle {
+    animation:
+      phoenixOrbitMiddleFixed 13s linear infinite reverse,
+      phoenixOrbitGlow 4.2s ease-in-out infinite !important;
+  }
+
+  .orbit-inner {
+    animation:
+      phoenixOrbitInnerFixed 9s linear infinite,
+      phoenixOrbitGlow 3s ease-in-out infinite reverse !important;
+  }
+
+  .orbit-quantum {
+    animation:
+      phoenixOrbitQuantumFixed 7s linear infinite,
+      quantumOrbitGlow 2.8s ease-in-out infinite !important;
+  }
+
+}
+
+
+/* =========================================================
+   FIXED ORBIT ANIMATIONS
+   translate ALWAYS stays first.
+   ========================================================= */
+
+@keyframes phoenixOrbitOuterFixed {
+
+  from {
+    transform:
+      translate3d(-50%, -50%, 0)
+      rotate(0deg)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate3d(-50%, -50%, 0)
+      rotate(180deg)
+      scale(1.008);
+  }
+
+  to {
+    transform:
+      translate3d(-50%, -50%, 0)
+      rotate(360deg)
+      scale(1);
+  }
+
+}
+
+
+@keyframes phoenixOrbitMiddleFixed {
+
+  from {
+    transform:
+      translate3d(-50%, -50%, 0)
+      rotate(0deg)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate3d(-50%, -50%, 0)
+      rotate(180deg)
+      scale(1.025);
+  }
+
+  to {
+    transform:
+      translate3d(-50%, -50%, 0)
+      rotate(360deg)
+      scale(1);
+  }
+
+}
+
+
+@keyframes phoenixOrbitInnerFixed {
+
+  from {
+    transform:
+      translate3d(-50%, -50%, 0)
+      rotate(0deg)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate3d(-50%, -50%, 0)
+      rotate(-180deg)
+      scale(0.985);
+  }
+
+  to {
+    transform:
+      translate3d(-50%, -50%, 0)
+      rotate(-360deg)
+      scale(1);
+  }
+
+}
+
+
+@keyframes phoenixOrbitQuantumFixed {
+
+  from {
+    transform:
+      translate3d(-50%, -50%, 0)
+      rotateX(64deg)
+      rotateZ(0deg)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate3d(-50%, -50%, 0)
+      rotateX(64deg)
+      rotateZ(180deg)
+      scale(1.035);
+  }
+
+  to {
+    transform:
+      translate3d(-50%, -50%, 0)
+      rotateX(64deg)
+      rotateZ(360deg)
+      scale(1);
+  }
+
+}
+
+
+
+/* =========================================================
+   PHOENIX EVOLUTION STATE — FINAL GEOMETRY FIX
+   MUST STAY AT THE VERY END OF VISION.CSS
+========================================================= */
+
+.evolution-visual {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* OUTER ORBIT — HARD CENTER LOCK */
+.vision-orbit {
+  position: absolute !important;
+
+  top: 50% !important;
+  left: 50% !important;
+
+  width: 220px !important;
+  height: 220px !important;
+
+  transform: translate(-50%, -50%) !important;
+
+  margin: 0 !important;
+
+  border-radius: 50% !important;
+  box-sizing: border-box !important;
+}
+
+/* INNER RING — HARD CENTER LOCK */
+.core-ring {
+  position: absolute !important;
+
+  top: 50% !important;
+  left: 50% !important;
+
+  transform: translate(-50%, -50%) !important;
+
+  margin: 0 !important;
+
+  border-radius: 50% !important;
+  box-sizing: border-box !important;
+}
+
+/* CENTRAL SYSTEM CORE */
+.evolution-core,
+.system-core,
+.core-system {
+  position: absolute !important;
+
+  top: 50% !important;
+  left: 50% !important;
+
+  transform: translate(-50%, -50%) !important;
+
+  margin: 0 !important;
+  z-index: 5;
+}
+
+/* DECORATIVE PSEUDO ELEMENTS */
+.vision-orbit::before,
+.vision-orbit::after,
+.core-ring::before,
+.core-ring::after {
+  box-sizing: border-box;
+}
+
+/* PREVENT OLD DESKTOP/RUNTIME POSITION OVERRIDES */
+@media (min-width: 769px) {
+  .vision-orbit,
+  .core-ring {
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
   }
 }
 /* =========================================================
-   PHOENIX MOTION TEST
+   PHOENIX EVOLUTION STATE — CORE TYPOGRAPHY CONTAINMENT FIX
+   Fixes red-marked SYSTEM / 0% / INITIALIZING text spill.
+   This block intentionally stays at the very end of Vision.css.
    ========================================================= */
 
-.vision-system::after {
-  animation: architectureRotation 3s linear infinite !important;
+.core-center {
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  width: 112px !important;
+  height: 112px !important;
+  padding: 8px !important;
+  gap: 3px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
 }
 
-.vision-core::after {
-  animation: outerCoreField 2.5s linear infinite !important;
+.core-center > span {
+  display: block !important;
+  flex: 0 0 auto !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: clip !important;
+  line-height: 1 !important;
 }
 
-.ring-one {
-  animation: ringOrbitOne 2s linear infinite !important;
+/* SYSTEM */
+.core-center > span:first-child {
+  font-size: 0.52rem !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.18em !important;
+  line-height: 1 !important;
 }
 
-.ring-two {
-  animation: ringOrbitTwo 3s linear infinite !important;
+/* 0% */
+.core-center > span:nth-child(2) {
+  font-size: 2.55rem !important;
+  font-weight: 950 !important;
+  letter-spacing: -0.055em !important;
+  line-height: 0.86 !important;
 }
 
-.ring-three {
-  animation: ringOrbitThree 4s linear infinite !important;
+/* INITIALIZING */
+.core-center > span:last-child {
+  font-size: 0.46rem !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.08em !important;
+  line-height: 1 !important;
 }
+
+@media (max-width: 560px) {
+  .core-center {
+    width: 105px !important;
+    height: 105px !important;
+    padding: 7px !important;
+  }
+
+  .core-center > span:first-child {
+    font-size: 0.48rem !important;
+  }
+
+  .core-center > span:nth-child(2) {
+    font-size: 2.35rem !important;
+  }
+
+  .core-center > span:last-child {
+    font-size: 0.42rem !important;
+    letter-spacing: 0.065em !important;
+  }
+}
+
+
+

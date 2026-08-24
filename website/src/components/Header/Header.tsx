@@ -9,15 +9,19 @@ function Header() {
         </div>
 
         <div className="brand-content">
-          <h1>MKB Universe &amp; Phoenix Vision</h1>
+          <h1>MKB UNIVERSE</h1>
 
-          <p>Building the future, one step at a time.</p>
+          <p>PHOENIX CORE // INTELLIGENCE ECOSYSTEM</p>
         </div>
       </div>
 
-      <div className="header-system" aria-label="Vision system status">
+      <div
+        className="header-system"
+        aria-label="Phoenix intelligence ecosystem system status"
+      >
         <span className="system-dot" />
-        <span>VISION SYSTEM</span>
+
+        <span>PHOENIX SYSTEM</span>
 
         <span className="system-line" aria-hidden="true" />
 

@@ -4,16 +4,21 @@
    ========================================================= */
 
 .hero {
+  --hero-bg: #030207;
+  --hero-purple: #7c3aed;
+  --hero-violet: #a855f7;
+  --hero-lilac: #c084fc;
+  --hero-white: #ffffff;
+
   position: relative;
   min-height: 920px;
   width: 100%;
   overflow: hidden;
-
   display: flex;
   align-items: center;
   justify-content: center;
 
-  color: #ffffff;
+  color: var(--hero-white);
 
   background:
     radial-gradient(
@@ -31,7 +36,7 @@
       rgba(124, 58, 237, 0.1),
       transparent 46%
     ),
-    #030207;
+    var(--hero-bg);
 
   isolation: isolate;
   box-sizing: border-box;
@@ -49,7 +54,6 @@
 
 .hero::before {
   content: "";
-
   position: absolute;
   inset: 0;
 
@@ -68,8 +72,8 @@
 
 .hero::after {
   content: "";
-
   position: absolute;
+
   left: 50%;
   bottom: -620px;
 
@@ -186,12 +190,40 @@
 }
 
 /* =========================================================
+   GLOBAL HERO GLOWS
+   ========================================================= */
+
+.hero-glow {
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(80px);
+  opacity: 0.22;
+  z-index: -2;
+}
+
+.hero-glow-one {
+  top: 18%;
+  left: 8%;
+  background: rgba(124, 58, 237, 0.32);
+  animation: glowFloatOne 9s ease-in-out infinite;
+}
+
+.hero-glow-two {
+  right: 8%;
+  bottom: 14%;
+  background: rgba(168, 85, 247, 0.25);
+  animation: glowFloatTwo 11s ease-in-out infinite;
+}
+
+/* =========================================================
    ORBITAL ARCHITECTURE
    ========================================================= */
 
 .orbit {
   position: absolute;
-
   left: 50%;
   top: 46%;
 
@@ -201,6 +233,7 @@
   transform: translate(-50%, -50%);
 
   pointer-events: none;
+  transform-style: preserve-3d;
 }
 
 .orbit::after {
@@ -259,7 +292,7 @@
 
   border-color: rgba(124, 58, 237, 0.075);
 
-  animation: orbitRotate 48s linear infinite;
+  animation: orbitRotateThird 48s linear infinite;
 }
 
 /* =========================================================
@@ -271,7 +304,6 @@
   z-index: 5;
 
   width: min(1220px, 92%);
-
   margin: 0 auto;
 
   padding: 82px 0 165px;
@@ -289,14 +321,12 @@
   justify-content: center;
 
   gap: 11px;
-
   margin: 0 auto 30px;
 
   color: #c4b5fd;
 
   font-size: 0.7rem;
   font-weight: 800;
-
   letter-spacing: 4px;
   line-height: 1;
 
@@ -363,17 +393,10 @@
 
   text-align: center;
 
-  /*
-    Deliberately reduced from the previous oversized scale.
-    The statement remains dominant without consuming the
-    entire viewport.
-  */
   font-size: clamp(3.8rem, 6vw, 6.4rem);
-
   line-height: 0.88;
 
   letter-spacing: -4.4px;
-
   font-weight: 950;
 
   text-transform: uppercase;
@@ -382,14 +405,11 @@
     titleReveal 1.25s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-/* =========================================================
-   BUILDING
-   ========================================================= */
-
-.hero-title > span {
+.hero-title > span:first-child {
   display: block;
 
   width: fit-content;
+  max-width: 100%;
 
   margin: 0 auto;
 
@@ -398,7 +418,6 @@
   text-align: center;
 
   white-space: nowrap;
-
   line-height: 0.88;
 
   text-shadow:
@@ -406,17 +425,13 @@
     0 0 80px rgba(255, 255, 255, 0.025);
 }
 
-/* =========================================================
-   WHAT COMES NEXT
-   ========================================================= */
-
 .hero-title strong {
   display: flex;
-
   align-items: baseline;
   justify-content: center;
 
   width: fit-content;
+  max-width: 100%;
 
   margin: 0 auto;
 
@@ -429,8 +444,11 @@
   white-space: nowrap;
 
   line-height: 0.88;
-
   letter-spacing: -4.4px;
+}
+
+.hero-title-main {
+  display: inline-block;
 }
 
 /* =========================================================
@@ -511,7 +529,6 @@
   color: #a8a1b5;
 
   font-size: 1rem;
-
   line-height: 1.8;
 
   letter-spacing: 0.6px;
@@ -547,8 +564,35 @@
   align-items: center;
   justify-content: center;
 
+  perspective: 900px;
+  transform-style: preserve-3d;
+
   animation:
     coreEntrance 1.5s ease 0.35s both;
+}
+
+.core-depth-field {
+  position: absolute;
+
+  inset: 4px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(168, 85, 247, 0.18),
+      rgba(124, 58, 237, 0.06) 42%,
+      transparent 70%
+    );
+
+  filter: blur(8px);
+
+  transform: translateZ(-45px) scale(1.15);
+
+  animation: depthField 5s ease-in-out infinite;
+
+  pointer-events: none;
 }
 
 .phoenix-core::before {
@@ -600,12 +644,15 @@
    ========================================================= */
 
 .core-outer-ring,
-.core-middle-ring {
+.core-middle-ring,
+.core-inner-ring {
   position: absolute;
 
   border-radius: 50%;
 
   pointer-events: none;
+
+  transform-style: preserve-3d;
 }
 
 .core-outer-ring {
@@ -617,8 +664,7 @@
   box-shadow:
     0 0 35px rgba(124, 58, 237, 0.08);
 
-  animation:
-    coreOrbit 18s linear infinite;
+  animation: coreOuter3D 18s linear infinite;
 }
 
 .core-outer-ring::before,
@@ -655,8 +701,62 @@
 
   border: 1px dashed rgba(168, 85, 247, 0.4);
 
-  animation:
-    coreOrbitReverse 12s linear infinite;
+  animation: coreMiddle3D 12s linear infinite;
+}
+
+.core-inner-ring {
+  width: 145px;
+  height: 145px;
+
+  border:
+    1px solid rgba(192, 132, 252, 0.22);
+
+  box-shadow:
+    inset 0 0 18px rgba(168, 85, 247, 0.12),
+    0 0 20px rgba(168, 85, 247, 0.08);
+
+  animation: coreInner3D 9s linear infinite;
+}
+
+/* =========================================================
+   CORE ENERGY LINES
+   ========================================================= */
+
+.core-energy-line {
+  position: absolute;
+
+  width: 220px;
+  height: 1px;
+
+  left: 15px;
+  top: 50%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(192, 132, 252, 0.8),
+      rgba(255, 255, 255, 0.7),
+      rgba(192, 132, 252, 0.8),
+      transparent
+    );
+
+  box-shadow:
+    0 0 12px rgba(168, 85, 247, 0.5);
+
+  opacity: 0.55;
+
+  pointer-events: none;
+}
+
+.energy-line-one {
+  transform: rotate(28deg);
+  animation: energySweepOne 4s ease-in-out infinite;
+}
+
+.energy-line-two {
+  transform: rotate(-32deg);
+  animation: energySweepTwo 5s ease-in-out infinite;
 }
 
 /* =========================================================
@@ -694,14 +794,18 @@
     0 0 110px rgba(168, 85, 247, 0.24),
     inset 0 0 25px rgba(255, 255, 255, 0.12);
 
-  animation:
-    coreBreathing 3.5s ease-in-out infinite;
+  transform: translateZ(15px);
+
+  animation: coreBreathing 3.5s ease-in-out infinite;
+
+  z-index: 4;
 }
 
 .core::before {
   content: "";
 
   position: absolute;
+
   inset: 10px;
 
   border-radius: 50%;
@@ -711,14 +815,14 @@
   box-shadow:
     inset 0 0 20px rgba(255, 255, 255, 0.15);
 
-  animation:
-    innerRing 5s linear infinite;
+  animation: innerRing 5s linear infinite;
 }
 
 .core::after {
   content: "";
 
   position: absolute;
+
   inset: 23px;
 
   border-radius: 50%;
@@ -727,19 +831,20 @@
 
   opacity: 0.7;
 
-  animation:
-    innerRingReverse 7s linear infinite;
+  animation: innerRingReverse 7s linear infinite;
 }
 
 .core-inner {
   position: relative;
+
   z-index: 3;
 
   display: flex;
   flex-direction: column;
-
   align-items: center;
   justify-content: center;
+
+  transform: translateZ(12px);
 }
 
 .core-inner span {
@@ -764,6 +869,19 @@
   letter-spacing: 3px;
 }
 
+.core-inner strong {
+  margin-top: 1px;
+
+  color: #ffffff;
+
+  font-size: 1.2rem;
+  line-height: 1;
+
+  text-shadow:
+    0 0 8px rgba(255, 255, 255, 0.8),
+    0 0 18px rgba(192, 132, 252, 0.7);
+}
+
 /* =========================================================
    CORE ORBIT DOTS
    ========================================================= */
@@ -782,30 +900,41 @@
     0 0 8px #a855f7,
     0 0 20px rgba(168, 85, 247, 0.8),
     0 0 35px rgba(168, 85, 247, 0.35);
+
+  transform-origin: center;
+
+  z-index: 5;
 }
 
 .dot-one {
   top: 8px;
   left: 118px;
 
-  animation:
-    dotOrbitOne 6s linear infinite;
+  animation: dotOrbitOne 6s linear infinite;
 }
 
 .dot-two {
   right: 17px;
   bottom: 65px;
 
-  animation:
-    dotOrbitTwo 8s linear infinite;
+  animation: dotOrbitTwo 8s linear infinite;
 }
 
 .dot-three {
   left: 34px;
   bottom: 25px;
 
-  animation:
-    dotOrbitThree 10s linear infinite;
+  animation: dotOrbitThree 10s linear infinite;
+}
+
+.dot-four {
+  right: 52px;
+  top: 28px;
+
+  width: 5px;
+  height: 5px;
+
+  animation: dotOrbitFour 7s linear infinite;
 }
 
 /* =========================================================
@@ -893,8 +1022,7 @@
   box-shadow:
     0 0 12px rgba(168, 85, 247, 0.6);
 
-  transition:
-    left 0.7s ease;
+  transition: left 0.7s ease;
 }
 
 .hero-sectors a::after {
@@ -912,8 +1040,7 @@
       transparent 65%
     );
 
-  transition:
-    opacity 0.35s ease;
+  transition: opacity 0.35s ease;
 }
 
 .hero-sectors a:hover {
@@ -1011,7 +1138,6 @@
   margin-top: 40px;
 
   display: flex;
-
   align-items: center;
   justify-content: center;
 
@@ -1026,6 +1152,7 @@
   position: relative;
 
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
 
@@ -1069,8 +1196,7 @@
       transparent
     );
 
-  transition:
-    left 0.7s ease;
+  transition: left 0.7s ease;
 }
 
 .future-primary:hover::before,
@@ -1160,6 +1286,7 @@
   transform: translateX(-50%);
 
   display: flex;
+
   justify-content: space-between;
 
   padding-top: 16px;
@@ -1181,9 +1308,12 @@
 
 .hero-system span {
   display: flex;
+
   align-items: center;
 
   gap: 7px;
+
+  white-space: nowrap;
 }
 
 .hero-system i {
@@ -1215,8 +1345,8 @@
   transform: translateX(-50%);
 
   display: flex;
-  flex-direction: column;
 
+  flex-direction: column;
   align-items: center;
 
   gap: 8px;
@@ -1288,30 +1418,70 @@
   }
 }
 
-@keyframes coreOrbit {
+@keyframes orbitRotateThird {
   from {
-    transform: rotate(0deg);
+    transform:
+      translate(-50%, -50%)
+      rotate(58deg);
   }
 
   to {
-    transform: rotate(360deg);
+    transform:
+      translate(-50%, -50%)
+      rotate(418deg);
   }
 }
 
-@keyframes coreOrbitReverse {
+@keyframes coreOuter3D {
   from {
-    transform: rotate(360deg);
+    transform:
+      rotateX(62deg)
+      rotateZ(0deg);
   }
 
   to {
-    transform: rotate(0deg);
+    transform:
+      rotateX(62deg)
+      rotateZ(360deg);
+  }
+}
+
+@keyframes coreMiddle3D {
+  from {
+    transform:
+      rotateX(68deg)
+      rotateY(8deg)
+      rotateZ(360deg);
+  }
+
+  to {
+    transform:
+      rotateX(68deg)
+      rotateY(8deg)
+      rotateZ(0deg);
+  }
+}
+
+@keyframes coreInner3D {
+  from {
+    transform:
+      rotateY(72deg)
+      rotateZ(0deg);
+  }
+
+  to {
+    transform:
+      rotateY(72deg)
+      rotateZ(360deg);
   }
 }
 
 @keyframes coreBreathing {
   0%,
   100% {
-    transform: scale(0.96);
+    transform:
+      translateZ(15px)
+      scale(0.96);
 
     box-shadow:
       0 0 20px rgba(124, 58, 237, 0.7),
@@ -1321,7 +1491,9 @@
   }
 
   50% {
-    transform: scale(1.045);
+    transform:
+      translateZ(28px)
+      scale(1.045);
 
     box-shadow:
       0 0 28px rgba(168, 85, 247, 0.95),
@@ -1354,6 +1526,23 @@
   50% {
     transform: scale(1.15);
     opacity: 1;
+  }
+}
+
+@keyframes depthField {
+  0%,
+  100% {
+    transform:
+      translateZ(-45px)
+      scale(1);
+    opacity: 0.45;
+  }
+
+  50% {
+    transform:
+      translateZ(-65px)
+      scale(1.18);
+    opacity: 0.85;
   }
 }
 
@@ -1504,6 +1693,62 @@
   }
 }
 
+@keyframes glowFloatOne {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(35px, 20px, 0) scale(1.15);
+  }
+}
+
+@keyframes glowFloatTwo {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(-30px, -25px, 0) scale(1.12);
+  }
+}
+
+@keyframes energySweepOne {
+  0%,
+  100% {
+    opacity: 0.18;
+    transform:
+      rotate(28deg)
+      scaleX(0.65);
+  }
+
+  50% {
+    opacity: 0.85;
+    transform:
+      rotate(28deg)
+      scaleX(1.1);
+  }
+}
+
+@keyframes energySweepTwo {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform:
+      rotate(-32deg)
+      scaleX(0.55);
+  }
+
+  50% {
+    opacity: 0.7;
+    transform:
+      rotate(-32deg)
+      scaleX(1.05);
+  }
+}
+
 @keyframes dotOrbitOne {
   from {
     transform:
@@ -1552,6 +1797,22 @@
   }
 }
 
+@keyframes dotOrbitFour {
+  from {
+    transform:
+      rotate(45deg)
+      translateX(72px)
+      rotate(-45deg);
+  }
+
+  to {
+    transform:
+      rotate(405deg)
+      translateX(72px)
+      rotate(-405deg);
+  }
+}
+
 /* =========================================================
    ACCESSIBILITY
    ========================================================= */
@@ -1559,17 +1820,21 @@
 @media (prefers-reduced-motion: reduce) {
   .hero-stars,
   .orbit,
+  .core-depth-field,
   .core-outer-ring,
   .core-middle-ring,
+  .core-inner-ring,
   .core,
   .core-inner,
+  .core-energy-line,
   .core-orbit-dot,
   .future-dot,
   .hero-title em,
   .hero-system i,
   .hero-scroll i,
   .future-primary,
-  .future-label {
+  .future-label,
+  .hero-glow {
     animation: none !important;
   }
 
@@ -1641,7 +1906,6 @@
   .future-label {
     font-size: 0.56rem;
     letter-spacing: 2.5px;
-
     max-width: 92%;
   }
 
@@ -1655,15 +1919,12 @@
       clamp(2.7rem, 12.5vw, 4.6rem);
 
     letter-spacing: -2.5px;
-
     line-height: 0.86;
   }
 
-  .hero-title > span {
+  .hero-title > span:first-child {
     width: 100%;
-
     white-space: normal;
-
     line-height: 0.88;
   }
 
@@ -1675,8 +1936,11 @@
     white-space: normal;
 
     letter-spacing: -2.5px;
-
     line-height: 0.88;
+  }
+
+  .hero-title-main {
+    display: inline-block;
   }
 
   .hero-title em {
@@ -1692,7 +1956,6 @@
     width: 100%;
 
     margin-top: 40px;
-
     padding: 0 20px;
 
     font-size: 0.84rem;
@@ -1716,6 +1979,16 @@
     height: 145px;
   }
 
+  .core-inner-ring {
+    width: 118px;
+    height: 118px;
+  }
+
+  .core-energy-line {
+    width: 176px;
+    left: 12px;
+  }
+
   .core {
     width: 92px;
     height: 92px;
@@ -1736,7 +2009,6 @@
 
   .hero-sectors a {
     min-height: 92px;
-
     padding:
       14px 8px;
   }
@@ -1755,7 +2027,6 @@
 
   .hero-actions {
     flex-direction: column;
-
     gap: 10px;
   }
 
@@ -1770,8 +2041,12 @@
     gap: 8px;
 
     font-size: 0.42rem;
-
     letter-spacing: 0.9px;
+  }
+
+  .hero-system span {
+    white-space: normal;
+    text-align: center;
   }
 
   .hero-scroll {
@@ -1792,6 +2067,11 @@
     width: 660px;
     height: 360px;
   }
+
+  .hero-glow {
+    width: 260px;
+    height: 260px;
+  }
 }
 
 /* =========================================================
@@ -1799,6 +2079,10 @@
    ========================================================= */
 
 @media (max-width: 380px) {
+  .hero {
+    min-height: 1080px;
+  }
+
   .hero-title {
     font-size: 2.55rem;
     letter-spacing: -1.8px;
@@ -1822,5 +2106,2209 @@
 
     padding:
       13px 18px;
+  }
+
+  .hero-system {
+    width: 94%;
+    bottom: 20px;
+  }
+}
+
+
+/* =========================================================
+   MKB UNIVERSE · PHOENIX VISION
+   HERO FINAL BUG-FIX OVERRIDE
+   IMPORTANT: APPEND ONLY — DO NOT DELETE EXISTING CSS
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   CORE TEXT CONTAINMENT
+   --------------------------------------------------------- */
+
+.phoenix-core {
+  overflow: visible;
+  isolation: isolate;
+}
+
+.phoenix-core .core {
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.phoenix-core .core-inner {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.phoenix-core .core-inner small,
+.phoenix-core .core-inner span,
+.phoenix-core .core-inner strong {
+  position: relative;
+  z-index: 10;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: clip;
+  white-space: nowrap;
+}
+
+.phoenix-core .core-inner small {
+  display: block;
+  width: 100%;
+  margin: 0 0 3px;
+  color: #ddd6fe;
+  font-size: clamp(0.38rem, 0.7vw, 0.48rem);
+  line-height: 1;
+  letter-spacing: 2.2px;
+  text-align: center;
+}
+
+.phoenix-core .core-inner span {
+  display: block;
+  width: 100%;
+  color: #ffffff;
+  font-size: clamp(0.58rem, 1vw, 0.7rem);
+  line-height: 1;
+  letter-spacing: 2.4px;
+  font-weight: 850;
+  text-align: center;
+}
+
+.phoenix-core .core-inner strong {
+  display: block;
+  margin-top: 4px;
+  color: #ffffff;
+  font-size: 1.05rem;
+  line-height: 0.85;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+/* ---------------------------------------------------------
+   REAL 3D CORE DEPTH
+   --------------------------------------------------------- */
+
+.phoenix-core {
+  transform-style: preserve-3d;
+}
+
+.phoenix-core .core-depth-field,
+.phoenix-core .core-outer-ring,
+.phoenix-core .core-middle-ring,
+.phoenix-core .core-inner-ring,
+.phoenix-core .core-energy-line,
+.phoenix-core .core,
+.phoenix-core .core-orbit-dot {
+  transform-style: preserve-3d;
+  will-change: transform, opacity, filter;
+}
+
+.phoenix-core .core-outer-ring {
+  animation:
+    coreOuter3D 18s linear infinite,
+    ringGlow 4s ease-in-out infinite;
+}
+
+.phoenix-core .core-middle-ring {
+  animation:
+    coreMiddle3D 12s linear infinite,
+    ringGlowReverse 5s ease-in-out infinite;
+}
+
+.phoenix-core .core-inner-ring {
+  animation:
+    coreInner3D 9s linear infinite,
+    ringGlow 3.5s ease-in-out infinite;
+}
+
+/* ---------------------------------------------------------
+   CORE ENERGY — MORE VISIBLE
+   --------------------------------------------------------- */
+
+.phoenix-core .core-energy-line {
+  z-index: 3;
+  mix-blend-mode: screen;
+}
+
+.phoenix-core .energy-line-one {
+  animation:
+    energySweepOne 3.6s ease-in-out infinite,
+    energyGlowOne 3.6s ease-in-out infinite;
+}
+
+.phoenix-core .energy-line-two {
+  animation:
+    energySweepTwo 4.4s ease-in-out infinite,
+    energyGlowTwo 4.4s ease-in-out infinite;
+}
+
+/* ---------------------------------------------------------
+   ORBIT DOTS — TRUE MOVEMENT
+   --------------------------------------------------------- */
+
+.phoenix-core .core-orbit-dot {
+  transform-origin: center;
+  will-change: transform;
+}
+
+.phoenix-core .dot-one {
+  animation: dotOrbitOne 5.5s linear infinite;
+}
+
+.phoenix-core .dot-two {
+  animation: dotOrbitTwo 7s linear infinite;
+}
+
+.phoenix-core .dot-three {
+  animation: dotOrbitThree 8.5s linear infinite;
+}
+
+.phoenix-core .dot-four {
+  animation: dotOrbitFour 6s linear infinite;
+}
+
+/* ---------------------------------------------------------
+   FIX BROKEN PSEUDO SELECTORS
+   --------------------------------------------------------- */
+
+.hero-sectors a:hover {
+  transform:
+    translateY(-8px)
+    scale(1.025);
+
+  border-color: rgba(192, 132, 252, 0.7);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(124, 58, 237, 0.13),
+      rgba(168, 85, 247, 0.06)
+    );
+
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(124, 58, 237, 0.16),
+    inset 0 0 22px rgba(168, 85, 247, 0.05);
+}
+
+.hero-sectors a:hover::before {
+  left: 130%;
+}
+
+.hero-sectors a:hover::after {
+  opacity: 1;
+}
+
+.hero-sectors a:hover > span {
+  transform:
+    translateY(-3px)
+    scale(1.08);
+
+  filter:
+    drop-shadow(
+      0 0 10px rgba(192, 132, 252, 0.8)
+    );
+}
+
+.hero-sectors:has(a:hover) a:not(:hover) {
+  opacity: 0.38;
+  filter:
+    saturate(0.55)
+    brightness(0.65);
+}
+
+/* ---------------------------------------------------------
+   TITLE FIRST LINE — REAL FIRST-CHILD SELECTOR
+   --------------------------------------------------------- */
+
+.hero-title > span:first-child {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
+  color: #ffffff;
+  text-align: center;
+  white-space: nowrap;
+  line-height: 0.88;
+}
+
+/* ---------------------------------------------------------
+   BUTTON HOVER FIX
+   --------------------------------------------------------- */
+
+.future-primary:hover,
+.future-secondary:hover {
+  transform: translateY(-4px);
+}
+
+.future-primary:hover::before,
+.future-secondary:hover::before {
+  left: 140%;
+}
+
+.future-primary:hover span {
+  transform: translateX(6px);
+}
+
+/* ---------------------------------------------------------
+   CORRECT INVALID TRANSITION PROPERTY
+   --------------------------------------------------------- */
+
+.hero-sectors a {
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease,
+    opacity 0.35s ease,
+    filter 0.35s ease;
+}
+
+.future-primary,
+.future-secondary {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* ---------------------------------------------------------
+   EXTRA CORE LIGHTING
+   --------------------------------------------------------- */
+
+.phoenix-core .core {
+  filter:
+    brightness(1.04)
+    saturate(1.08);
+
+  animation:
+    coreBreathing 3.5s ease-in-out infinite,
+    coreLightPulse 4.5s ease-in-out infinite;
+}
+
+.phoenix-core::before {
+  pointer-events: none;
+}
+
+@keyframes ringGlow {
+  0%,
+  100% {
+    opacity: 0.55;
+    filter: brightness(0.85);
+  }
+
+  50% {
+    opacity: 1;
+    filter: brightness(1.45);
+  }
+}
+
+@keyframes ringGlowReverse {
+  0%,
+  100% {
+    opacity: 0.45;
+    filter: brightness(0.8);
+  }
+
+  50% {
+    opacity: 1;
+    filter: brightness(1.55);
+  }
+}
+
+@keyframes coreLightPulse {
+  0%,
+  100% {
+    filter:
+      brightness(0.95)
+      saturate(1);
+  }
+
+  50% {
+    filter:
+      brightness(1.2)
+      saturate(1.25);
+  }
+}
+
+@keyframes energyGlowOne {
+  0%,
+  100% {
+    filter: blur(0);
+  }
+
+  50% {
+    filter: blur(1px);
+  }
+}
+
+@keyframes energyGlowTwo {
+  0%,
+  100% {
+    filter: blur(1px);
+  }
+
+  50% {
+    filter: blur(0);
+  }
+}
+
+/* ---------------------------------------------------------
+   TABLET CORE TEXT
+   --------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .phoenix-core .core-inner {
+    padding: 0 7px;
+  }
+
+  .phoenix-core .core-inner small {
+    font-size: 0.4rem;
+    letter-spacing: 2px;
+  }
+
+  .phoenix-core .core-inner span {
+    font-size: 0.62rem;
+    letter-spacing: 2px;
+  }
+
+  .phoenix-core .core-inner strong {
+    font-size: 1rem;
+  }
+}
+
+/* ---------------------------------------------------------
+   MOBILE CORE TEXT
+   --------------------------------------------------------- */
+
+@media (max-width: 600px) {
+  .phoenix-core .core-inner {
+    padding: 0 6px;
+  }
+
+  .phoenix-core .core-inner small {
+    font-size: 0.34rem;
+    letter-spacing: 1.6px;
+  }
+
+  .phoenix-core .core-inner span {
+    font-size: 0.54rem;
+    letter-spacing: 1.7px;
+  }
+
+  .phoenix-core .core-inner strong {
+    font-size: 0.9rem;
+    margin-top: 3px;
+  }
+
+  .hero-sectors a:hover {
+    transform: translateY(-5px) scale(1.015);
+  }
+}
+
+/* ---------------------------------------------------------
+   VERY SMALL DEVICES
+   --------------------------------------------------------- */
+
+@media (max-width: 380px) {
+  .phoenix-core .core-inner small {
+    font-size: 0.31rem;
+    letter-spacing: 1.35px;
+  }
+
+  .phoenix-core .core-inner span {
+    font-size: 0.5rem;
+    letter-spacing: 1.4px;
+  }
+
+  .phoenix-core .core-inner strong {
+    font-size: 0.82rem;
+  }
+}
+
+
+/* =========================================================
+   PHOENIX 3D INTERACTION ENGINE
+   Dynamic pointer-driven depth / lighting / parallax
+   ========================================================= */
+
+.hero {
+  --hero-mouse-x: 50%;
+  --hero-mouse-y: 45%;
+  --hero-rotate-x: 0deg;
+  --hero-rotate-y: 0deg;
+  --hero-parallax-x: 0px;
+  --hero-parallax-y: 0px;
+
+  perspective: 1400px;
+  perspective-origin:
+    var(--hero-mouse-x)
+    var(--hero-mouse-y);
+
+  transition:
+    perspective-origin 0.35s ease;
+}
+
+/* ---------------------------------------------------------
+   DYNAMIC LIGHT FOLLOWER
+   --------------------------------------------------------- */
+
+.hero-mouse-light {
+  position: absolute;
+  width: 620px;
+  height: 620px;
+  left: var(--hero-mouse-x);
+  top: var(--hero-mouse-y);
+
+  transform:
+    translate(-50%, -50%)
+    translateZ(100px);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(216, 180, 254, 0.16) 0%,
+      rgba(168, 85, 247, 0.11) 18%,
+      rgba(124, 58, 237, 0.06) 38%,
+      transparent 70%
+    );
+
+  filter: blur(18px);
+
+  mix-blend-mode: screen;
+
+  pointer-events: none;
+
+  z-index: -1;
+
+  transition:
+    left 0.18s ease-out,
+    top 0.18s ease-out;
+}
+
+/* ---------------------------------------------------------
+   CONTENT DEPTH
+   --------------------------------------------------------- */
+
+.hero-content {
+  transform-style: preserve-3d;
+
+  transform:
+    translate3d(
+      calc(var(--hero-parallax-x) * -0.22),
+      calc(var(--hero-parallax-y) * -0.16),
+      30px
+    )
+    rotateX(
+      calc(var(--hero-rotate-x) * 0.18)
+    )
+    rotateY(
+      calc(var(--hero-rotate-y) * 0.18)
+    );
+
+  transition:
+    transform 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ---------------------------------------------------------
+   TITLE FLOATING DEPTH
+   --------------------------------------------------------- */
+
+.hero-title {
+  transform-style: preserve-3d;
+
+  transform:
+    translate3d(
+      calc(var(--hero-parallax-x) * -0.12),
+      calc(var(--hero-parallax-y) * -0.08),
+      70px
+    )
+    rotateX(
+      calc(var(--hero-rotate-x) * 0.12)
+    )
+    rotateY(
+      calc(var(--hero-rotate-y) * 0.12)
+    );
+
+  transition:
+    transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ---------------------------------------------------------
+   GLOBAL ORBIT PARALLAX
+   --------------------------------------------------------- */
+
+.orbit {
+  transform-style: preserve-3d;
+
+  transition:
+    transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.orbit-1 {
+  transform:
+    translate(
+      calc(-50% + var(--hero-parallax-x)),
+      calc(-50% + var(--hero-parallax-y))
+    )
+    rotate(28deg)
+    rotateX(
+      calc(var(--hero-rotate-x) * 0.45)
+    )
+    rotateY(
+      calc(var(--hero-rotate-y) * 0.45)
+    );
+}
+
+.orbit-2 {
+  transform:
+    translate(
+      calc(-50% + var(--hero-parallax-x) * 0.72),
+      calc(-50% + var(--hero-parallax-y) * 0.72)
+    )
+    rotate(-24deg)
+    rotateX(
+      calc(var(--hero-rotate-x) * 0.65)
+    )
+    rotateY(
+      calc(var(--hero-rotate-y) * 0.65)
+    );
+}
+
+.orbit-3 {
+  transform:
+    translate(
+      calc(-50% + var(--hero-parallax-x) * 0.48),
+      calc(-50% + var(--hero-parallax-y) * 0.48)
+    )
+    rotate(58deg)
+    rotateX(
+      calc(var(--hero-rotate-x) * 0.8)
+    )
+    rotateY(
+      calc(var(--hero-rotate-y) * 0.8)
+    );
+}
+
+/* ---------------------------------------------------------
+   PHOENIX CORE — TRUE 3D STAGE
+   --------------------------------------------------------- */
+
+.phoenix-core {
+  transform-style: preserve-3d;
+
+  transform:
+    translate3d(
+      var(--hero-parallax-x),
+      var(--hero-parallax-y),
+      120px
+    )
+    rotateX(
+      calc(var(--hero-rotate-x) * 1.25)
+    )
+    rotateY(
+      calc(var(--hero-rotate-y) * 1.25)
+    );
+
+  transition:
+    transform 0.16s cubic-bezier(0.16, 1, 0.3, 1);
+
+  will-change: transform;
+}
+
+/* ---------------------------------------------------------
+   CORE DEPTH
+   --------------------------------------------------------- */
+
+.core-depth-field {
+  transform-style: preserve-3d;
+
+  transform:
+    translateZ(-80px)
+    scale(1.15)
+    rotateX(
+      calc(var(--hero-rotate-x) * -0.35)
+    )
+    rotateY(
+      calc(var(--hero-rotate-y) * -0.35)
+    );
+
+  transition:
+    transform 0.25s ease-out;
+}
+
+/* ---------------------------------------------------------
+   OUTER RING
+   --------------------------------------------------------- */
+
+.core-outer-ring {
+  transform-style: preserve-3d;
+
+  transform:
+    rotateX(62deg)
+    rotateZ(0deg)
+    rotateY(
+      calc(var(--hero-rotate-y) * 0.9)
+    );
+
+  box-shadow:
+    0 0 35px rgba(124, 58, 237, 0.18),
+    0 0 75px rgba(168, 85, 247, 0.08);
+
+  transition:
+    box-shadow 0.25s ease;
+}
+
+/* ---------------------------------------------------------
+   MIDDLE RING
+   --------------------------------------------------------- */
+
+.core-middle-ring {
+  transform-style: preserve-3d;
+
+  transform:
+    rotateX(68deg)
+    rotateY(
+      calc(8deg + var(--hero-rotate-y))
+    )
+    rotateZ(360deg);
+
+  filter:
+    drop-shadow(
+      0 0 8px
+      rgba(168, 85, 247, 0.45)
+    );
+}
+
+/* ---------------------------------------------------------
+   INNER RING
+   --------------------------------------------------------- */
+
+.core-inner-ring {
+  transform-style: preserve-3d;
+
+  transform:
+    rotateY(
+      calc(72deg + var(--hero-rotate-y))
+    )
+    rotateZ(0deg);
+
+  box-shadow:
+    inset 0 0 22px rgba(168, 85, 247, 0.2),
+    0 0 30px rgba(168, 85, 247, 0.14);
+}
+
+/* ---------------------------------------------------------
+   CORE ENERGY LAYERS
+   --------------------------------------------------------- */
+
+.core-energy-line {
+  transform-origin: center;
+
+  filter:
+    drop-shadow(
+      0 0 7px rgba(192, 132, 252, 0.75)
+    );
+}
+
+.energy-line-one {
+  transform:
+    rotate(28deg)
+    translateZ(35px)
+    rotateY(var(--hero-rotate-y));
+}
+
+.energy-line-two {
+  transform:
+    rotate(-32deg)
+    translateZ(55px)
+    rotateX(var(--hero-rotate-x));
+}
+
+/* ---------------------------------------------------------
+   PHOENIX CORE SPHERE
+   --------------------------------------------------------- */
+
+.core {
+  transform-style: preserve-3d;
+
+  transform:
+    translateZ(45px)
+    rotateX(
+      calc(var(--hero-rotate-x) * 0.8)
+    )
+    rotateY(
+      calc(var(--hero-rotate-y) * 0.8)
+    );
+
+  background:
+    radial-gradient(
+      circle at
+        var(--hero-mouse-x)
+        var(--hero-mouse-y),
+      #ffffff 0%,
+      #ddd6fe 7%,
+      #c084fc 15%,
+      #8b5cf6 28%,
+      #4c1d95 52%,
+      #13072d 78%,
+      #05020d 100%
+    );
+
+  box-shadow:
+    0 0 25px rgba(124, 58, 237, 0.95),
+    0 0 65px rgba(124, 58, 237, 0.58),
+    0 0 125px rgba(168, 85, 247, 0.32),
+    inset
+      calc(
+        (var(--hero-mouse-x) - 50%) * 0.12
+      )
+      calc(
+        (var(--hero-mouse-y) - 50%) * 0.12
+      )
+      25px
+      rgba(255, 255, 255, 0.2);
+
+  transition:
+    background 0.2s ease,
+    box-shadow 0.25s ease;
+
+  will-change:
+    transform,
+    box-shadow;
+}
+
+/* ---------------------------------------------------------
+   CORE TEXT FLOATING ABOVE SPHERE
+   --------------------------------------------------------- */
+
+.core-inner {
+  transform-style: preserve-3d;
+
+  transform:
+    translateZ(28px)
+    rotateX(
+      calc(var(--hero-rotate-x) * -0.45)
+    )
+    rotateY(
+      calc(var(--hero-rotate-y) * -0.45)
+    );
+
+  text-shadow:
+    0 0 10px rgba(255, 255, 255, 0.75),
+    0 0 22px rgba(192, 132, 252, 0.5);
+}
+
+/* ---------------------------------------------------------
+   ORBIT DOTS — DEPTH LAYERS
+   --------------------------------------------------------- */
+
+.core-orbit-dot {
+  transform-style: preserve-3d;
+
+  transition:
+    transform 0.16s ease-out;
+}
+
+.dot-one {
+  transform:
+    translateZ(70px)
+    translateX(
+      calc(var(--hero-parallax-x) * 0.3)
+    );
+}
+
+.dot-two {
+  transform:
+    translateZ(30px)
+    translateX(
+      calc(var(--hero-parallax-x) * 0.45)
+    );
+}
+
+.dot-three {
+  transform:
+    translateZ(-15px)
+    translateX(
+      calc(var(--hero-parallax-x) * 0.6)
+    );
+}
+
+.dot-four {
+  transform:
+    translateZ(95px)
+    translateX(
+      calc(var(--hero-parallax-x) * 0.2)
+    );
+}
+
+/* ---------------------------------------------------------
+   SECTORS — FLOATING HOLOGRAPHIC PANELS
+   --------------------------------------------------------- */
+
+.hero-sectors {
+  transform-style: preserve-3d;
+
+  transform:
+    translate3d(
+      calc(var(--hero-parallax-x) * -0.12),
+      calc(var(--hero-parallax-y) * -0.1),
+      45px
+    )
+    rotateX(
+      calc(var(--hero-rotate-x) * 0.25)
+    )
+    rotateY(
+      calc(var(--hero-rotate-y) * 0.25)
+    );
+
+  transition:
+    transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-sectors a {
+  transform-style: preserve-3d;
+
+  will-change:
+    transform,
+    box-shadow;
+
+  transition:
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.hero-sectors a:hover {
+  transform:
+    translateY(-8px)
+    translateZ(35px)
+    rotateX(-3deg)
+    rotateY(3deg)
+    scale(1.035);
+}
+
+/* ---------------------------------------------------------
+   BUTTON DEPTH
+   --------------------------------------------------------- */
+
+.hero-actions {
+  transform-style: preserve-3d;
+
+  transform:
+    translateZ(35px)
+    translate3d(
+      calc(var(--hero-parallax-x) * -0.08),
+      calc(var(--hero-parallax-y) * -0.06),
+      0
+    );
+
+  transition:
+    transform 0.22s ease-out;
+}
+
+.future-primary,
+.future-secondary {
+  transform-style: preserve-3d;
+}
+
+.future-primary:hover,
+.future-secondary:hover {
+  transform:
+    translateY(-4px)
+    translateZ(18px)
+    rotateX(-2deg);
+}
+
+/* ---------------------------------------------------------
+   LABEL DEPTH
+   --------------------------------------------------------- */
+
+.future-label {
+  transform:
+    translate3d(
+      calc(var(--hero-parallax-x) * -0.18),
+      calc(var(--hero-parallax-y) * -0.12),
+      65px
+    );
+
+  transition:
+    transform 0.22s ease-out;
+}
+
+/* ---------------------------------------------------------
+   DESCRIPTION DEPTH
+   --------------------------------------------------------- */
+
+.hero-description {
+  transform:
+    translate3d(
+      calc(var(--hero-parallax-x) * -0.08),
+      calc(var(--hero-parallax-y) * -0.06),
+      45px
+    );
+
+  transition:
+    transform 0.22s ease-out;
+}
+
+/* ---------------------------------------------------------
+   MOBILE / TOUCH
+   --------------------------------------------------------- */
+
+@media (max-width: 600px) {
+  .hero {
+    perspective: 1000px;
+  }
+
+  .hero-mouse-light {
+    width: 360px;
+    height: 360px;
+  }
+
+  .phoenix-core {
+    transform:
+      translateZ(70px)
+      rotateX(
+        calc(var(--hero-rotate-x) * 0.7)
+      )
+      rotateY(
+        calc(var(--hero-rotate-y) * 0.7)
+      );
+  }
+
+  .hero-content,
+  .hero-title,
+  .hero-sectors,
+  .hero-actions,
+  .future-label,
+  .hero-description {
+    transform:
+      translateZ(15px);
+  }
+}
+
+/* ---------------------------------------------------------
+   REDUCED MOTION
+   --------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-mouse-light {
+    display: none;
+  }
+
+  .hero-content,
+  .hero-title,
+  .hero-sectors,
+  .hero-actions,
+  .future-label,
+  .hero-description,
+  .phoenix-core,
+  .core,
+  .core-depth-field,
+  .core-outer-ring,
+  .core-middle-ring,
+  .core-inner-ring {
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* =========================================================
+   MKB UNIVERSE · PHOENIX VISION
+   AUTONOMOUS ECOSYSTEM ENGINE
+   No mouse interaction.
+   Everything moves continuously.
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   MASTER ENVIRONMENT
+   --------------------------------------------------------- */
+
+.hero {
+  --eco-speed: 1;
+  --eco-glow: 1;
+
+  overflow: hidden;
+  perspective: 1600px;
+  perspective-origin: 50% 45%;
+}
+
+/* Disable previous pointer-driven positioning */
+.hero-mouse-light {
+  display: none !important;
+}
+
+/* ---------------------------------------------------------
+   LIVING ATMOSPHERE
+   --------------------------------------------------------- */
+
+.hero::before {
+  animation:
+    ecosystemAtmosphere 12s ease-in-out infinite alternate;
+}
+
+.hero::after {
+  animation:
+    planetPulse 10s ease-in-out infinite;
+}
+
+/* ---------------------------------------------------------
+   STAR FIELD — DEEP SPACE MOTION
+   --------------------------------------------------------- */
+
+.hero-stars {
+  animation:
+    starDrift 55s linear infinite,
+    starBreathing 7s ease-in-out infinite alternate;
+  will-change: transform, opacity;
+}
+
+/* ---------------------------------------------------------
+   GRID — SLOW SYSTEM SCAN
+   --------------------------------------------------------- */
+
+.hero-grid {
+  animation:
+    gridDrift 28s linear infinite,
+    gridPulse 9s ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* ---------------------------------------------------------
+   GLOBAL GLOWS — INDEPENDENT MOTION
+   --------------------------------------------------------- */
+
+.hero-glow-one {
+  animation:
+    glowFloatOne 9s ease-in-out infinite,
+    glowPulseA 4.5s ease-in-out infinite alternate !important;
+}
+
+.hero-glow-two {
+  animation:
+    glowFloatTwo 11s ease-in-out infinite,
+    glowPulseB 6s ease-in-out infinite alternate !important;
+}
+
+/* ---------------------------------------------------------
+   LARGE ORBITAL ARCHITECTURE
+   IMPORTANT:
+   Each orbit gets its own continuous rotation.
+   --------------------------------------------------------- */
+
+.orbit {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.orbit-1 {
+  animation:
+    ecosystemOrbitOne 22s linear infinite !important;
+}
+
+.orbit-2 {
+  animation:
+    ecosystemOrbitTwo 31s linear infinite !important;
+}
+
+.orbit-3 {
+  animation:
+    ecosystemOrbitThree 44s linear infinite !important;
+}
+
+/* orbit energy particle */
+.orbit::after {
+  animation:
+    orbitSignal 2.4s ease-in-out infinite;
+}
+
+/* ---------------------------------------------------------
+   HERO CONTENT — SUBTLE FLOAT
+   --------------------------------------------------------- */
+
+.hero-content {
+  transform-style: preserve-3d;
+
+  animation:
+    ecosystemFloat 9s ease-in-out infinite;
+}
+
+/* ---------------------------------------------------------
+   TITLE — ALIVE, BUT VERY SUBTLE
+   --------------------------------------------------------- */
+
+.hero-title {
+  transform-style: preserve-3d;
+
+  animation:
+    titleReveal 1.25s cubic-bezier(0.16, 1, 0.3, 1) both,
+    titleFloat 8s ease-in-out 1.3s infinite;
+}
+
+.hero-title em {
+  animation:
+    gradientFlow 8s ease infinite,
+    nextEnergy 3.5s ease-in-out infinite alternate;
+}
+
+/* ---------------------------------------------------------
+   FUTURE LABEL
+   --------------------------------------------------------- */
+
+.future-label {
+  animation:
+    labelReveal 1.2s ease both,
+    telemetryFlicker 8s ease-in-out infinite,
+    labelFloat 6s ease-in-out infinite;
+}
+
+/* =========================================================
+   PHOENIX CORE
+   LIVING 3D ENGINE
+   ========================================================= */
+
+.phoenix-core {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+
+  will-change: transform;
+
+  animation:
+    coreEntrance 1.5s ease 0.35s both,
+    phoenixFloat 7s ease-in-out 1.5s infinite;
+}
+
+/* ---------------------------------------------------------
+   CORE ENERGY FIELD
+   --------------------------------------------------------- */
+
+.core-depth-field {
+  animation:
+    depthField 5s ease-in-out infinite,
+    coreEnergyBreath 3s ease-in-out infinite alternate;
+}
+
+.phoenix-core::before {
+  animation:
+    coreField 4s ease-in-out infinite,
+    ecosystemField 8s ease-in-out infinite;
+}
+
+/* ---------------------------------------------------------
+   OUTER RING
+   --------------------------------------------------------- */
+
+.core-outer-ring {
+  animation:
+    coreOuter3D 16s linear infinite !important;
+
+  will-change: transform;
+}
+
+.core-outer-ring::before {
+  animation:
+    outerParticleOne 5s linear infinite;
+}
+
+.core-outer-ring::after {
+  animation:
+    outerParticleTwo 7s linear infinite;
+}
+
+/* ---------------------------------------------------------
+   MIDDLE RING — OPPOSITE ROTATION
+   --------------------------------------------------------- */
+
+.core-middle-ring {
+  animation:
+    coreMiddle3D 11s linear infinite !important;
+
+  will-change: transform;
+}
+
+/* ---------------------------------------------------------
+   INNER RING — FAST AXIAL ROTATION
+   --------------------------------------------------------- */
+
+.core-inner-ring {
+  animation:
+    coreInner3D 7s linear infinite !important;
+
+  will-change: transform;
+}
+
+/* ---------------------------------------------------------
+   ENERGY LINES
+   --------------------------------------------------------- */
+
+.core-energy-line {
+  animation:
+    energyReality 3s ease-in-out infinite alternate;
+}
+
+.energy-line-one {
+  animation:
+    energySweepOne 3.2s ease-in-out infinite,
+    energyFlashOne 6s ease-in-out infinite;
+}
+
+.energy-line-two {
+  animation:
+    energySweepTwo 4.1s ease-in-out infinite,
+    energyFlashTwo 8s ease-in-out infinite;
+}
+
+/* =========================================================
+   CORE SPHERE
+   ========================================================= */
+
+.core {
+  transform-style: preserve-3d;
+
+  animation:
+    coreBreathing 3.5s ease-in-out infinite,
+    coreRotation 12s ease-in-out infinite,
+    corePowerPulse 5s ease-in-out infinite;
+
+  will-change:
+    transform,
+    box-shadow;
+}
+
+/* inner sphere rings */
+.core::before {
+  animation:
+    innerRing 5s linear infinite,
+    innerPulse 3s ease-in-out infinite;
+}
+
+.core::after {
+  animation:
+    innerRingReverse 7s linear infinite,
+    innerPulseReverse 4s ease-in-out infinite;
+}
+
+/* ---------------------------------------------------------
+   CORE TEXT — FLOATING IN DEPTH
+   --------------------------------------------------------- */
+
+.core-inner {
+  animation:
+    coreTextFloat 4s ease-in-out infinite;
+}
+
+/* ---------------------------------------------------------
+   CORE ORBIT DOTS
+   --------------------------------------------------------- */
+
+.core-orbit-dot {
+  will-change: transform;
+}
+
+.dot-one {
+  animation:
+    dotOrbitOne 5.5s linear infinite,
+    dotPulse 2.2s ease-in-out infinite;
+}
+
+.dot-two {
+  animation:
+    dotOrbitTwo 7s linear infinite,
+    dotPulse 2.8s ease-in-out 0.4s infinite;
+}
+
+.dot-three {
+  animation:
+    dotOrbitThree 9s linear infinite,
+    dotPulse 3.2s ease-in-out 0.8s infinite;
+}
+
+.dot-four {
+  animation:
+    dotOrbitFour 6.5s linear infinite,
+    dotPulse 1.9s ease-in-out 1.2s infinite;
+}
+
+/* ---------------------------------------------------------
+   CORE ENERGY WAVE
+   --------------------------------------------------------- */
+
+.phoenix-core::after {
+  animation:
+    microSignal 3s ease-in-out infinite,
+    coreSignalFlash 5s ease-in-out infinite;
+}
+
+/* =========================================================
+   NEW ENERGY WAVES USING PSEUDO LAYERS
+   ========================================================= */
+
+.phoenix-core {
+  isolation: isolate;
+}
+
+.phoenix-core .core-depth-field {
+  z-index: -3;
+}
+
+/* =========================================================
+   TECHNOLOGY SECTORS
+   ========================================================= */
+
+.hero-sectors {
+  transform-style: preserve-3d;
+
+  animation:
+    fadeUp 1.4s ease 0.55s both,
+    sectorFloat 10s ease-in-out 2s infinite;
+}
+
+/* Each sector gets a different rhythm */
+
+.sector-ai {
+  animation:
+    sectorHoverA 6s ease-in-out infinite;
+}
+
+.sector-robotics {
+  animation:
+    sectorHoverB 7.5s ease-in-out 0.8s infinite;
+}
+
+.sector-space {
+  animation:
+    sectorHoverC 8.5s ease-in-out 1.4s infinite;
+}
+
+.sector-evolution {
+  animation:
+    sectorHoverD 9.5s ease-in-out 2s infinite;
+}
+
+/* ---------------------------------------------------------
+   SECTOR ENERGY SCANNER
+   --------------------------------------------------------- */
+
+.hero-sectors a::before {
+  animation:
+    sectorScanner 3.8s linear infinite;
+}
+
+.hero-sectors a::after {
+  animation:
+    sectorAura 5s ease-in-out infinite alternate;
+}
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
+
+.hero-actions {
+  animation:
+    fadeUp 1.4s ease 0.7s both,
+    actionsFloat 7s ease-in-out 2s infinite;
+}
+
+.future-primary {
+  animation:
+    buttonGradient 6s ease infinite,
+    buttonPower 4s ease-in-out infinite;
+}
+
+.future-secondary {
+  animation:
+    secondaryPulse 5s ease-in-out infinite;
+}
+
+/* =========================================================
+   TELEMETRY
+   ========================================================= */
+
+.hero-system {
+  animation:
+    telemetryFloat 8s ease-in-out infinite;
+}
+
+.hero-system i {
+  animation:
+    statusSignal 2s ease-in-out infinite,
+    statusBurst 6s ease-in-out infinite;
+}
+
+/* =========================================================
+   SCROLL SYSTEM
+   ========================================================= */
+
+.hero-scroll {
+  animation:
+    scrollFloat 4s ease-in-out infinite;
+}
+
+/* =========================================================
+   AUTONOMOUS ANIMATION LIBRARY
+   ========================================================= */
+
+/* Environment */
+
+@keyframes ecosystemAtmosphere {
+  0% {
+    opacity: 0.72;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.88;
+    transform: scale(1.025);
+  }
+
+  100% {
+    opacity: 0.72;
+    transform: scale(1);
+  }
+}
+
+@keyframes planetPulse {
+  0%,
+  100% {
+    opacity: 0.65;
+    transform: translateX(-50%) scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.035);
+  }
+}
+
+@keyframes starBreathing {
+  0% {
+    opacity: 0.62;
+  }
+
+  100% {
+    opacity: 0.95;
+  }
+}
+
+@keyframes gridDrift {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 72px 72px;
+  }
+}
+
+@keyframes gridPulse {
+  0%,
+  100% {
+    opacity: 0.18;
+  }
+
+  50% {
+    opacity: 0.34;
+  }
+}
+
+@keyframes glowPulseA {
+  0% {
+    opacity: 0.14;
+  }
+
+  100% {
+    opacity: 0.34;
+  }
+}
+
+@keyframes glowPulseB {
+  0% {
+    opacity: 0.12;
+  }
+
+  100% {
+    opacity: 0.32;
+  }
+}
+
+/* Large orbital system */
+
+@keyframes ecosystemOrbitOne {
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotate(28deg)
+      rotateX(8deg);
+  }
+
+  50% {
+    transform:
+      translate(-50%, -50%)
+      rotate(208deg)
+      rotateX(-8deg);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotate(388deg)
+      rotateX(8deg);
+  }
+}
+
+@keyframes ecosystemOrbitTwo {
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotate(-24deg)
+      rotateY(12deg);
+  }
+
+  50% {
+    transform:
+      translate(-50%, -50%)
+      rotate(-204deg)
+      rotateY(-12deg);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotate(-384deg)
+      rotateY(12deg);
+  }
+}
+
+@keyframes ecosystemOrbitThree {
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotate(58deg)
+      rotateX(-12deg);
+  }
+
+  50% {
+    transform:
+      translate(-50%, -50%)
+      rotate(238deg)
+      rotateX(12deg);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotate(418deg)
+      rotateX(-12deg);
+  }
+}
+
+@keyframes orbitSignal {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform:
+      translate(-50%, -50%)
+      scale(0.65);
+  }
+
+  50% {
+    opacity: 1;
+    transform:
+      translate(-50%, -50%)
+      scale(1.5);
+  }
+}
+
+/* Content */
+
+@keyframes ecosystemFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes titleFloat {
+  0%,
+  100% {
+    transform: translateY(0) translateZ(0);
+  }
+
+  50% {
+    transform: translateY(-7px) translateZ(14px);
+  }
+}
+
+@keyframes nextEnergy {
+  0% {
+    filter:
+      brightness(0.95)
+      drop-shadow(0 0 0 rgba(168, 85, 247, 0));
+  }
+
+  100% {
+    filter:
+      brightness(1.2)
+      drop-shadow(
+        0 0 18px
+        rgba(168, 85, 247, 0.4)
+      );
+  }
+}
+
+@keyframes labelFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+/* =========================================================
+   PHOENIX MOTION
+   ========================================================= */
+
+@keyframes phoenixFloat {
+  0%,
+  100% {
+    transform:
+      translateY(0)
+      rotateX(0deg)
+      rotateY(0deg);
+  }
+
+  25% {
+    transform:
+      translateY(-8px)
+      rotateX(3deg)
+      rotateY(-4deg);
+  }
+
+  50% {
+    transform:
+      translateY(0)
+      rotateX(-3deg)
+      rotateY(4deg);
+  }
+
+  75% {
+    transform:
+      translateY(7px)
+      rotateX(2deg)
+      rotateY(-3deg);
+  }
+}
+
+@keyframes coreEnergyBreath {
+  0% {
+    opacity: 0.35;
+    transform:
+      translateZ(-45px)
+      scale(0.95);
+  }
+
+  100% {
+    opacity: 0.95;
+    transform:
+      translateZ(-75px)
+      scale(1.22);
+  }
+}
+
+@keyframes ecosystemField {
+  0%,
+  100% {
+    transform: scale(0.9);
+    opacity: 0.35;
+  }
+
+  50% {
+    transform: scale(1.2);
+    opacity: 0.9;
+  }
+}
+
+/* =========================================================
+   CORE RING MOTION
+   ========================================================= */
+
+@keyframes coreOuter3D {
+  0% {
+    transform:
+      rotateX(58deg)
+      rotateY(0deg)
+      rotateZ(0deg);
+  }
+
+  25% {
+    transform:
+      rotateX(70deg)
+      rotateY(12deg)
+      rotateZ(90deg);
+  }
+
+  50% {
+    transform:
+      rotateX(58deg)
+      rotateY(0deg)
+      rotateZ(180deg);
+  }
+
+  75% {
+    transform:
+      rotateX(46deg)
+      rotateY(-12deg)
+      rotateZ(270deg);
+  }
+
+  100% {
+    transform:
+      rotateX(58deg)
+      rotateY(0deg)
+      rotateZ(360deg);
+  }
+}
+
+@keyframes coreMiddle3D {
+  0% {
+    transform:
+      rotateX(68deg)
+      rotateY(8deg)
+      rotateZ(360deg);
+  }
+
+  50% {
+    transform:
+      rotateX(52deg)
+      rotateY(-18deg)
+      rotateZ(180deg);
+  }
+
+  100% {
+    transform:
+      rotateX(68deg)
+      rotateY(8deg)
+      rotateZ(0deg);
+  }
+}
+
+@keyframes coreInner3D {
+  0% {
+    transform:
+      rotateX(18deg)
+      rotateY(72deg)
+      rotateZ(0deg);
+  }
+
+  50% {
+    transform:
+      rotateX(-18deg)
+      rotateY(58deg)
+      rotateZ(180deg);
+  }
+
+  100% {
+    transform:
+      rotateX(18deg)
+      rotateY(72deg)
+      rotateZ(360deg);
+  }
+}
+
+/* =========================================================
+   CORE POWER
+   ========================================================= */
+
+@keyframes coreRotation {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+
+  50% {
+    filter:
+      brightness(1.22)
+      saturate(1.15);
+  }
+}
+
+@keyframes corePowerPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 20px rgba(124, 58, 237, 0.8),
+      0 0 55px rgba(124, 58, 237, 0.45),
+      0 0 100px rgba(168, 85, 247, 0.2),
+      inset 0 0 25px rgba(255, 255, 255, 0.1);
+  }
+
+  50% {
+    box-shadow:
+      0 0 35px rgba(168, 85, 247, 1),
+      0 0 80px rgba(124, 58, 237, 0.7),
+      0 0 155px rgba(168, 85, 247, 0.42),
+      inset 0 0 38px rgba(255, 255, 255, 0.2);
+  }
+}
+
+@keyframes innerPulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+
+  50% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes innerPulseReverse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes coreTextFloat {
+  0%,
+  100% {
+    transform: translateZ(12px);
+  }
+
+  50% {
+    transform: translateZ(25px);
+  }
+}
+
+/* =========================================================
+   ENERGY WAVES
+   ========================================================= */
+
+@keyframes energyReality {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+
+  50% {
+    opacity: 0.95;
+  }
+}
+
+@keyframes energyFlashOne {
+  0%,
+  72%,
+  100% {
+    filter: brightness(1);
+  }
+
+  76% {
+    filter: brightness(2.2);
+  }
+
+  80% {
+    filter: brightness(1);
+  }
+}
+
+@keyframes energyFlashTwo {
+  0%,
+  82%,
+  100% {
+    filter: brightness(1);
+  }
+
+  86% {
+    filter: brightness(2.4);
+  }
+
+  90% {
+    filter: brightness(1);
+  }
+}
+
+@keyframes coreSignalFlash {
+  0%,
+  78%,
+  100% {
+    opacity: 0.35;
+  }
+
+  82% {
+    opacity: 1;
+    transform: scale(2);
+  }
+
+  86% {
+    opacity: 0.4;
+    transform: scale(0.7);
+  }
+}
+
+/* =========================================================
+   PARTICLES
+   ========================================================= */
+
+@keyframes outerParticleOne {
+  0% {
+    transform:
+      rotate(0deg)
+      translateX(0)
+      scale(0.7);
+  }
+
+  50% {
+    transform:
+      rotate(180deg)
+      translateX(4px)
+      scale(1.5);
+  }
+
+  100% {
+    transform:
+      rotate(360deg)
+      translateX(0)
+      scale(0.7);
+  }
+}
+
+@keyframes outerParticleTwo {
+  0% {
+    opacity: 0.35;
+    transform: scale(0.7);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+
+  100% {
+    opacity: 0.35;
+    transform: scale(0.7);
+  }
+}
+
+@keyframes dotPulse {
+  0%,
+  100% {
+    opacity: 0.4;
+    filter: brightness(0.9);
+  }
+
+  50% {
+    opacity: 1;
+    filter: brightness(1.8);
+  }
+}
+
+/* =========================================================
+   SECTOR ECOSYSTEM
+   ========================================================= */
+
+@keyframes sectorFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes sectorHoverA {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-3px) translateZ(8px);
+  }
+}
+
+@keyframes sectorHoverB {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(4px) translateZ(6px);
+  }
+}
+
+@keyframes sectorHoverC {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px) translateZ(10px);
+  }
+}
+
+@keyframes sectorHoverD {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(3px) translateZ(7px);
+  }
+}
+
+@keyframes sectorScanner {
+  0% {
+    left: -100%;
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  100% {
+    left: 130%;
+    opacity: 0;
+  }
+}
+
+@keyframes sectorAura {
+  0% {
+    opacity: 0.05;
+  }
+
+  100% {
+    opacity: 0.35;
+  }
+}
+
+/* =========================================================
+   ACTION SYSTEM
+   ========================================================= */
+
+@keyframes actionsFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes buttonPower {
+  0%,
+  100% {
+    box-shadow:
+      0 0 22px rgba(124, 58, 237, 0.2);
+  }
+
+  50% {
+    box-shadow:
+      0 0 38px rgba(168, 85, 247, 0.4);
+  }
+}
+
+@keyframes secondaryPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 rgba(124, 58, 237, 0);
+  }
+
+  50% {
+    box-shadow:
+      0 0 24px rgba(124, 58, 237, 0.12);
+  }
+}
+
+/* =========================================================
+   SYSTEM TELEMETRY
+   ========================================================= */
+
+@keyframes telemetryFloat {
+  0%,
+  100% {
+    opacity: 0.72;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes statusBurst {
+  0%,
+  82%,
+  100% {
+    box-shadow:
+      0 0 8px rgba(34, 197, 94, 0.75),
+      0 0 18px rgba(34, 197, 94, 0.3);
+  }
+
+  86% {
+    box-shadow:
+      0 0 12px rgba(34, 197, 94, 1),
+      0 0 35px rgba(34, 197, 94, 0.7);
+  }
+}
+
+@keyframes scrollFloat {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero *,
+  .hero::before,
+  .hero::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
   }
 }
